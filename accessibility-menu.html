@@ -498,6 +498,18 @@
             </div>
         </div>
 
+        <div class="acc-item">
+            <div class="acc-child" id="font-size">
+                <box-icon name='font-size'></box-icon>
+                <p>Font Size</p>
+                <div class="acc-progress-parent hidden">
+                    <div class="acc-progress-child acc-progress-child-1"></div>
+                    <div class="acc-progress-child acc-progress-child-2"></div>
+                    <div class="acc-progress-child acc-progress-child-3"></div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>
@@ -610,6 +622,39 @@
 
     });
 
+    let fontSizeClickCount = 0;
+    document.querySelector('#font-size').addEventListener('click', () => {
+        const item = document.querySelector('#font-size');
+        if (fontSizeClickCount === 3) {
+            fontSizeClickCount = 0;
+            item.querySelector('.acc-progress-parent').classList.add('hidden');
+            item.classList.add('active');
+            docElemnt.style.fontSize = '';
+        } else {
+            item.classList.remove('active');
+            if (fontSizeClickCount === 0) {
+                docElemnt.style.fontSize = '1.3rem';
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.add('active');
+                item.querySelector('.acc-progress-child-2').classList.remove('active');
+                item.querySelector('.acc-progress-child-3').classList.remove('active');
+            } else if (fontSizeClickCount === 1) {
+                docElemnt.style.fontSize = '1.5rem';
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.remove('active');
+                item.querySelector('.acc-progress-child-2').classList.add('active');
+                item.querySelector('.acc-progress-child-3').classList.remove('active');
+            } else if (fontSizeClickCount === 2) {
+                docElemnt.style.fontSize = '1.8rem';
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.remove('active');
+                item.querySelector('.acc-progress-child-2').classList.remove('active');
+                item.querySelector('.acc-progress-child-3').classList.add('active');
+            }
+            fontSizeClickCount++;
+        }
+
+    });
 
     //save the user's settings in cookies
     function setCookie(name, value, days) {
