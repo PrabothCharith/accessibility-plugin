@@ -278,6 +278,9 @@
     }
 
     /*Accessibility Tools*/
+    .invert {
+        filter: invert(1);
+    }
 </style>
 
 <div id="accessibility-modal" class="right close">
@@ -379,14 +382,13 @@
             </div>
         </div>
         <div class="acc-item">
-            <div class="acc-child active">
-                <box-icon class="check-icon" color="white" type='solid' name='check-circle'></box-icon>
-                <i class="bi bi-box"></i>
-                <p>Text Here</p>
-                <div class="acc-progress-parent">
-                    <div class="acc-progress-child"></div>
-                    <div class="acc-progress-child"></div>
-                    <div class="acc-progress-child"></div>
+            <div class="acc-child" id="invert-colors">
+                <box-icon name='adjust' type='solid'></box-icon>
+                <p>Invert Colours</p>
+                <div class="acc-progress-parent hidden">
+                    <div class="acc-progress-child acc-progress-child-1"></div>
+                    <div class="acc-progress-child acc-progress-child-2"></div>
+                    <div class="acc-progress-child acc-progress-child-3"></div>
                 </div>
             </div>
         </div>
@@ -442,6 +444,11 @@
         item.addEventListener('click', () => {
             item.querySelector('.acc-child').classList.toggle('active');
         });
+    const docElemnt = document.querySelector('html');
+
+    document.querySelector('#invert-colors').addEventListener('click', () => {
+        const item = document.querySelector('#invert-colors');
+        docElemnt.classList.toggle('invert');
     });
 
 
