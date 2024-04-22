@@ -533,6 +533,20 @@
                 </div>
             </div>
         </div>
+
+        <div class="acc-item">
+            <div class="acc-child" id="letter-spacing">
+                <box-icon name='text-spacing'></box-icon>
+                <p>Letter Spacing</p>
+                <div class="acc-progress-parent hidden">
+                    <div class="acc-progress-child acc-progress-child-1"></div>
+                    <div class="acc-progress-child acc-progress-child-2"></div>
+                    <div class="acc-progress-child acc-progress-child-3"></div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
 </div>
@@ -714,6 +728,40 @@
                 item.querySelector('.acc-progress-child-3').classList.add('active');
             }
             lineHeightClickCount++;
+        }
+
+    });
+
+    let letterSpacingClickCount = 0;
+    document.querySelector('#letter-spacing').addEventListener('click', () => {
+        const item = document.querySelector('#letter-spacing');
+        if (letterSpacingClickCount === 3) {
+            letterSpacingClickCount = 0;
+            item.querySelector('.acc-progress-parent').classList.add('hidden');
+            item.classList.add('active');
+            docElemnt.style.letterSpacing = '';
+        } else {
+            item.classList.remove('active');
+            if (letterSpacingClickCount === 0) {
+                docElemnt.style.letterSpacing = '0.1rem';
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.add('active');
+                item.querySelector('.acc-progress-child-2').classList.remove('active');
+                item.querySelector('.acc-progress-child-3').classList.remove('active');
+            } else if (letterSpacingClickCount === 1) {
+                docElemnt.style.letterSpacing = '0.2rem';
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.remove('active');
+                item.querySelector('.acc-progress-child-2').classList.add('active');
+                item.querySelector('.acc-progress-child-3').classList.remove('active');
+            } else if (letterSpacingClickCount === 2) {
+                docElemnt.style.letterSpacing = '0.3rem';
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.remove('active');
+                item.querySelector('.acc-progress-child-2').classList.remove('active');
+                item.querySelector('.acc-progress-child-3').classList.add('active');
+            }
+            letterSpacingClickCount++;
         }
 
     });
