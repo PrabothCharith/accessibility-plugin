@@ -351,16 +351,8 @@
         bottom: 0;
     }
 
-    .contrast-style-0 {
-        filter: contrast(0.5);
-    }
-
-    .contrast-style-1 {
-        filter: contrast(1.5);
-    }
-
-    .contrast-style-2 {
-        filter: contrast(2.5);
+    .hide-images img {
+        display: none;
     }
 
 </style>
@@ -579,6 +571,13 @@
                     <div class="acc-progress-child acc-progress-child-2"></div>
                     <div class="acc-progress-child acc-progress-child-3"></div>
                 </div>
+            </div>
+        </div>
+
+        <div class="acc-item">
+            <div class="acc-child" id="hide-images">
+                <box-icon type='solid' name='landscape'></box-icon>
+                <p>Hide image</p>
             </div>
         </div>
 
@@ -880,6 +879,10 @@
             contrastClickCount++;
         }
 
+    });
+
+    document.querySelector('#hide-images').addEventListener('click', () => {
+        docElemnt.classList.toggle('hide-images');
     });
 
     //save the user's settings in cookies
