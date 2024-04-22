@@ -790,18 +790,21 @@
             item.classList.remove('active');
             if (textAlignClickCount === 0) {
                 docElemnt.style.textAlign = 'left';
+                item.parentElement.querySelector('box-icon').setAttribute('name', 'align-left');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.add('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
             } else if (textAlignClickCount === 1) {
                 docElemnt.style.textAlign = 'center';
+                item.parentElement.querySelector('box-icon').setAttribute('name', 'align-middle');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.add('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
             } else if (textAlignClickCount === 2) {
                 docElemnt.style.textAlign = 'right';
+                item.parentElement.querySelector('box-icon').setAttribute('name', 'align-right');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
