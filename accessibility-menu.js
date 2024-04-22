@@ -1,6 +1,4 @@
-<style>
-
-    :root {
+const accessibilityMenuStyles = `    :root {
         --acc_color_1: #000;
         --acc_color_2: #fff;
         --border_radius: 25px;
@@ -354,19 +352,14 @@
     .hide-images img {
         display: none;
     }
-
-</style>
-
-<div id="accessibility-modal" class="right close">
-
+`;
+const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close">
     <button id="closeBtn" style="z-index: 99999;">
         <box-icon type='solid' color='white' name='universal-access'></box-icon>
     </button>
-
     <div id="headerContent">
         <p>Accessibility Tools</p>
     </div>
-
     <div id="accessibility-tools">
 
         <div class="acc-item">
@@ -484,12 +477,20 @@
         </div>
 
     </div>
+</div><script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>`;
+document.addEventListener("DOMContentLoaded", function () {
 
-</div>
+    // Load Boxicons script
+    const boxiconsScript = document.createElement("script");
+    boxiconsScript.src = "https://unpkg.com/boxicons@2.1.4/dist/boxicons.js";
+    document.body.appendChild(boxiconsScript);
 
-<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    const accessibilityMenuStyleElement = document.createElement("style");
+    accessibilityMenuStyleElement.innerHTML = accessibilityMenuStyles;
+    document.head.appendChild(accessibilityMenuStyleElement);
 
-<script>
+    document.body.insertAdjacentHTML("beforeend", accessibilityMenuHTML);
+
     //accessibility tool
     const accessibilityModal = document.getElementById('accessibility-modal');
     const closeBtn = document.getElementById('closeBtn');
@@ -864,4 +865,4 @@
         setCookie('fontSize', fontSize, 365);
     });
 
-</script>
+});
