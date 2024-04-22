@@ -285,6 +285,14 @@
     .grayscale {
         filter: grayscale(1);
     }
+
+    .low-saturation {
+        filter: saturate(20%);
+    }
+
+    .high-saturation {
+        filter: saturate(200%);
+    }
 </style>
 
 <div id="accessibility-modal" class="right close">
@@ -410,14 +418,12 @@
         </div>
 
         <div class="acc-item">
-            <div class="acc-child active">
-                <box-icon class="check-icon" color="white" type='solid' name='check-circle'></box-icon>
-                <i class="bi bi-box"></i>
-                <p>Text Here</p>
-                <div class="acc-progress-parent">
-                    <div class="acc-progress-child"></div>
-                    <div class="acc-progress-child"></div>
-                    <div class="acc-progress-child"></div>
+            <div class="acc-child" id="saturation">
+                <box-icon name='color' type='solid'></box-icon>
+                <p>Low Saturation</p>
+                <div class="acc-progress-parent hidden">
+                    <div class="acc-progress-child acc-progress-child-1 active"></div>
+                    <div class="acc-progress-child acc-progress-child-2"></div>
                 </div>
             </div>
         </div>
@@ -457,6 +463,36 @@
     document.querySelector('#grayscale').addEventListener('click', () => {
         const item = document.querySelector('#grayscale');
         docElemnt.classList.toggle('grayscale');
+    });
+
+    let saturationClickCount = 0;
+    document.querySelector('#saturation').addEventListener('click', () => {
+        const item = document.querySelector('#saturation');
+        if (saturationClickCount === 2) {
+            saturationClickCount = 0;
+            item.querySelector('p').innerText = 'Low Saturation';
+            item.querySelector('.acc-progress-parent').classList.add('hidden');
+            item.classList.add('active');
+            docElemnt.classList.remove('high-saturation');
+            docElemnt.classList.remove('low-saturation');
+        } else {
+            item.classList.remove('active');
+            if (saturationClickCount === 0) {
+                docElemnt.classList.add('low-saturation');
+                item.querySelector('p').innerText = 'High Saturation';
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.add('active');
+                item.querySelector('.acc-progress-child-2').classList.remove('active');
+            } else if (saturationClickCount === 1) {
+                docElemnt.classList.remove('low-saturation');
+                docElemnt.classList.add('high-saturation');
+                item.querySelector('p').innerText = 'Low Saturation';
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.remove('active');
+                item.querySelector('.acc-progress-child-2').classList.add('active');
+            }
+            saturationClickCount++;
+        }
     });
 
     //save the user's settings in cookies
