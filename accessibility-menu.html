@@ -281,6 +281,10 @@
     .invert {
         filter: invert(1);
     }
+
+    .grayscale {
+        filter: grayscale(1);
+    }
 </style>
 
 <div id="accessibility-modal" class="right close">
@@ -394,14 +398,13 @@
         </div>
 
         <div class="acc-item">
-            <div class="acc-child">
-                <box-icon class="check-icon" color="white" type='solid' name='check-circle'></box-icon>
-                <i class="bi bi-box"></i>
-                <p>Text Here</p>
-                <div class="acc-progress-parent">
-                    <div class="acc-progress-child"></div>
-                    <div class="acc-progress-child"></div>
-                    <div class="acc-progress-child"></div>
+            <div class="acc-child" id="grayscale">
+                <box-icon name='droplet-half' type='solid'></box-icon>
+                <p>Grayscale</p>
+                <div class="acc-progress-parent hidden">
+                    <div class="acc-progress-child acc-progress-child-1"></div>
+                    <div class="acc-progress-child acc-progress-child-2"></div>
+                    <div class="acc-progress-child acc-progress-child-3"></div>
                 </div>
             </div>
         </div>
@@ -451,6 +454,10 @@
         docElemnt.classList.toggle('invert');
     });
 
+    document.querySelector('#grayscale').addEventListener('click', () => {
+        const item = document.querySelector('#grayscale');
+        docElemnt.classList.toggle('grayscale');
+    });
 
     //save the user's settings in cookies
     function setCookie(name, value, days) {
