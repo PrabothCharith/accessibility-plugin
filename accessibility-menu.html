@@ -522,6 +522,17 @@
             </div>
         </div>
 
+        <div class="acc-item">
+            <div class="acc-child" id="line-height">
+                <box-icon name='expand-vertical'></box-icon>
+                <p>Line Height</p>
+                <div class="acc-progress-parent hidden">
+                    <div class="acc-progress-child acc-progress-child-1"></div>
+                    <div class="acc-progress-child acc-progress-child-2"></div>
+                    <div class="acc-progress-child acc-progress-child-3"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>
@@ -669,6 +680,40 @@
                 item.querySelector('.acc-progress-child-3').classList.add('active');
             }
             fontSizeClickCount++;
+        }
+
+    });
+
+    let lineHeightClickCount = 0;
+    document.querySelector('#line-height').addEventListener('click', () => {
+        const item = document.querySelector('#line-height');
+        if (lineHeightClickCount === 3) {
+            lineHeightClickCount = 0;
+            item.querySelector('.acc-progress-parent').classList.add('hidden');
+            item.classList.add('active');
+            docElemnt.style.lineHeight = '';
+        } else {
+            item.classList.remove('active');
+            if (lineHeightClickCount === 0) {
+                docElemnt.style.lineHeight = '1.5';
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.add('active');
+                item.querySelector('.acc-progress-child-2').classList.remove('active');
+                item.querySelector('.acc-progress-child-3').classList.remove('active');
+            } else if (lineHeightClickCount === 1) {
+                docElemnt.style.lineHeight = '1.8';
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.remove('active');
+                item.querySelector('.acc-progress-child-2').classList.add('active');
+                item.querySelector('.acc-progress-child-3').classList.remove('active');
+            } else if (lineHeightClickCount === 2) {
+                docElemnt.style.lineHeight = '2';
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.remove('active');
+                item.querySelector('.acc-progress-child-2').classList.remove('active');
+                item.querySelector('.acc-progress-child-3').classList.add('active');
+            }
+            lineHeightClickCount++;
         }
 
     });
