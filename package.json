@@ -1,0 +1,22 @@
+{
+  "name": "accessibility-plugin",
+  "version": "1.0.0",
+  "description": "You can use this plugin to make a accessibility friendly website fast and easily",
+  "main": "accessibility-menu.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrabothCharith/accessibility-plugin.git"
+  },
+  "keywords": [
+    "accessibility-plugin"
+  ],
+  "author": "Praboth Charith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrabothCharith/accessibility-plugin/issues"
+  },
+  "homepage": "https://github.com/PrabothCharith/accessibility-plugin#readme"
+}
