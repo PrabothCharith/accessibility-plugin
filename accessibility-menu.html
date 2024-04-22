@@ -535,7 +535,12 @@
     accItems.forEach(item => {
         item.addEventListener('click', () => {
             item.querySelector('.acc-child').classList.toggle('active');
+            item.querySelectorAll('box-icon').forEach(icon => {
+                icon.setAttribute('color', item.querySelector('.acc-child').classList.contains('active') ? 'white' : 'black');
+            });
         });
+    });
+
     const docElemnt = document.querySelector('html');
 
     document.querySelector('#invert-colors').addEventListener('click', () => {
