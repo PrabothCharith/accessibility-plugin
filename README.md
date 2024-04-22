@@ -10,4 +10,4 @@ The Accessibility Plugin is a JavaScript library that helps improve the accessib
 
 You can install the Accessibility Plugin using npm. Run the following command in your project directory:
 
-`npm i accessibility-plugin`
+<pre><code>npm i accessibility-plugin</code></pre>
