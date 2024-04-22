@@ -558,6 +558,17 @@
             </div>
         </div>
 
+        <div class="acc-item">
+            <div class="acc-child" id="contrast">
+                <box-icon name='brightness-half' type='solid'></box-icon>
+                <p>Contrast</p>
+                <div class="acc-progress-parent hidden">
+                    <div class="acc-progress-child acc-progress-child-1"></div>
+                    <div class="acc-progress-child acc-progress-child-2"></div>
+                    <div class="acc-progress-child acc-progress-child-3"></div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -811,6 +822,50 @@
                 item.querySelector('.acc-progress-child-3').classList.add('active');
             }
             textAlignClickCount++;
+        }
+
+    });
+
+    let contrastClickCount = 0;
+    document.querySelector('#contrast').addEventListener('click', () => {
+        const item = document.querySelector('#contrast');
+        if (contrastClickCount === 3) {
+            contrastClickCount = 0;
+            item.querySelector('.acc-progress-parent').classList.add('hidden');
+            item.classList.add('active');
+            docElemnt.classList.remove('contrast');
+            docElemnt.classList.remove('contrast-style-0');
+            docElemnt.classList.remove('contrast-style-1');
+            docElemnt.classList.remove('contrast-style-2');
+        } else {
+            item.classList.remove('active');
+            if (contrastClickCount === 0) {
+                docElemnt.classList.add('contrast');
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.add('active');
+                item.querySelector('.acc-progress-child-2').classList.remove('active');
+                item.querySelector('.acc-progress-child-3').classList.remove('active');
+                docElemnt.classList.add('contrast-style-0');
+                docElemnt.classList.remove('contrast-style-1');
+                docElemnt.classList.remove('contrast-style-2');
+            } else if (contrastClickCount === 1) {
+                docElemnt.classList.remove('contrast-style-0');
+                docElemnt.classList.add('contrast-style-1');
+                docElemnt.classList.remove('contrast-style-2');
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.remove('active');
+                item.querySelector('.acc-progress-child-2').classList.add('active');
+                item.querySelector('.acc-progress-child-3').classList.remove('active');
+            } else if (contrastClickCount === 2) {
+                docElemnt.classList.remove('contrast-style-0');
+                docElemnt.classList.remove('contrast-style-1');
+                docElemnt.classList.add('contrast-style-2');
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.remove('active');
+                item.querySelector('.acc-progress-child-2').classList.remove('active');
+                item.querySelector('.acc-progress-child-3').classList.add('active');
+            }
+            contrastClickCount++;
         }
 
     });
