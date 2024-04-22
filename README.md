@@ -12,6 +12,13 @@ You can install the Accessibility Plugin using npm. Run the following command in
 
 <pre><code>npm i accessibility-plugin</code></pre>
 
+### OR
+
+You can use this `CDN` easily
+
+<pre><code>https://cdn.jsdelivr.net/gh/PrabothCharith/accessibility-plugin@main/accessibility-menu.min.js</code></pre>
+<pre><code><script src="https://cdn.jsdelivr.net/gh/PrabothCharith/accessibility-plugin@main/accessibility-menu.min.js"></script></code></pre>
+
 <br/>
 
 After installation, you can link the `javascript` file _normally_ using
