@@ -1,4 +1,4 @@
-![image](https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/755a78db-6de1-43d7-a3f0-ec179cc39d69)# Accessibility Plugin
+# Accessibility Plugin
 
 [![npm version](https://badge.fury.io/js/accessibility-plugin.svg)](https://badge.fury.io/js/accessibility-plugin)
 
@@ -36,6 +36,7 @@ You can use `min.js` file _as your requirement_
 
 ### default view
 
+![image](https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/755a78db-6de1-43d7-a3f0-ec179cc39d69)
 <img width="530" alt="SCR-20240422-svdv" src="https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/d74454a0-54c4-4379-8c1d-0c514372db58">
 <img width="530" alt="SCR-20240422-suzy" src="https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/08e18cbe-f8d5-4d62-ad66-87d6ee437cf8">
 <img width="530" alt="SCR-20240422-suyc" src="https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/bf4387c4-92c3-49d9-8892-ff7fbf09d38c">
