@@ -546,6 +546,18 @@
             </div>
         </div>
 
+        <div class="acc-item">
+            <div class="acc-child" id="text-align">
+                <box-icon name='text-align-left'></box-icon>
+                <p>Text Align</p>
+                <div class="acc-progress-parent hidden">
+                    <div class="acc-progress-child acc-progress-child-1"></div>
+                    <div class="acc-progress-child acc-progress-child-2"></div>
+                    <div class="acc-progress-child acc-progress-child-3"></div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 
@@ -762,6 +774,40 @@
                 item.querySelector('.acc-progress-child-3').classList.add('active');
             }
             letterSpacingClickCount++;
+        }
+
+    });
+
+    let textAlignClickCount = 0;
+    document.querySelector('#text-align').addEventListener('click', () => {
+        const item = document.querySelector('#text-align');
+        if (textAlignClickCount === 3) {
+            textAlignClickCount = 0;
+            item.querySelector('.acc-progress-parent').classList.add('hidden');
+            item.classList.add('active');
+            docElemnt.style.textAlign = '';
+        } else {
+            item.classList.remove('active');
+            if (textAlignClickCount === 0) {
+                docElemnt.style.textAlign = 'left';
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.add('active');
+                item.querySelector('.acc-progress-child-2').classList.remove('active');
+                item.querySelector('.acc-progress-child-3').classList.remove('active');
+            } else if (textAlignClickCount === 1) {
+                docElemnt.style.textAlign = 'center';
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.remove('active');
+                item.querySelector('.acc-progress-child-2').classList.add('active');
+                item.querySelector('.acc-progress-child-3').classList.remove('active');
+            } else if (textAlignClickCount === 2) {
+                docElemnt.style.textAlign = 'right';
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.remove('active');
+                item.querySelector('.acc-progress-child-2').classList.remove('active');
+                item.querySelector('.acc-progress-child-3').classList.add('active');
+            }
+            textAlignClickCount++;
         }
 
     });
