@@ -476,7 +476,7 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
 
         <div class="acc-item">
             <div class="acc-child" id="hide-images">
-                <box-icon type='solid' name='landscape'></box-icon>
+                <box-icon type='solid' name='camera-off'></box-icon>
                 <p>Hide image</p>
             </div>
         </div>
