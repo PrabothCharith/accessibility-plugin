@@ -352,6 +352,11 @@ const accessibilityMenuStyles = `    :root {
     .hide-images img {
         display: none;
     }
+    
+    .hide-video video {
+        display: none;
+    }
+    
 `;
 const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close">
     <button id="closeBtn" style="z-index: 99999;">
@@ -473,6 +478,13 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
             <div class="acc-child" id="hide-images">
                 <box-icon type='solid' name='landscape'></box-icon>
                 <p>Hide image</p>
+            </div>
+        </div>
+        
+        <div class="acc-item">
+            <div class="acc-child" id="hide-video">
+                <box-icon type="solid" name='video-off' ></box-icon>
+                <p>Hide video</p>
             </div>
         </div>
 
@@ -786,6 +798,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelector('#hide-images').addEventListener('click', () => {
         docElemnt.classList.toggle('hide-images');
+    });
+
+    document.querySelector('#hide-video').addEventListener('click', () => {
+        docElemnt.classList.toggle('hide-video');
     });
 
     //save the user's settings in cookies
