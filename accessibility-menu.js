@@ -415,7 +415,7 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
 
         <div class="acc-item">
             <div class="acc-child" id="underline">
-                <box-icon name='expand-horizontal'></box-icon>
+                <box-icon name='link'></box-icon>
                 <p>Links Highlight</p>
                 <div class="acc-progress-parent hidden">
                     <div class="acc-progress-child acc-progress-child-1"></div>
