@@ -14,6 +14,7 @@ const accessibilityMenuStyles = `    :root {
         font-size: 16px;
         line-height: 1;
         letter-spacing: 0;
+        text-align: center;
     }
 
     #accessibility-modal {
@@ -40,6 +41,9 @@ const accessibilityMenuStyles = `    :root {
         overflow: clip;
         border: none;
         outline: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     #accessibility-modal.left #closeBtn {
@@ -126,15 +130,9 @@ const accessibilityMenuStyles = `    :root {
         margin: 0;
     }
 
-    #accessibility-modal.close #closeBtn box-icon {
-        top: 0;
-        left: 0;
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    #accessibility-modal #closeBtn svg {
+        width: 40px;
+        height: 40px;
     }
 
     #accessibility-modal.close:hover #closeBtn {
@@ -249,6 +247,13 @@ const accessibilityMenuStyles = `    :root {
 
     .acc-child.active .acc-progress-child.active {
         opacity: 1;
+    }
+
+    #accessibility-tools svg,
+    #accessibility-tools img{
+        width: 30px;
+        height: 30px;
+        margin-bottom: 10px;
     }
 
     /*Accessibility Tools*/
