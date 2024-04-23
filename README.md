@@ -31,7 +31,7 @@ You can use `min.js` file _as your requirement_
 
 > **Link the `Javascript` file `after all javascript` for better output**
 
-## Cusomize
+## Customization
 
 ### Change Position
 
