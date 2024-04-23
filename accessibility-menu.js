@@ -66,17 +66,6 @@ const accessibilityMenuStyles = `    :root {
         margin: 15px;
     }
 
-    #accessibility-modal #closeBtn box-icon {
-        top: 0;
-        left: 0;
-        position: absolute;
-        width: 35px;
-        height: 35px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
     #accessibility-modal.left {
         left: 0;
         right: auto;
@@ -470,13 +459,8 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
         </div>
 
     </div>
-</div><script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>`;
+</div>`;
 document.addEventListener("DOMContentLoaded", function () {
-
-    // Load Boxicons script
-    const boxiconsScript = document.createElement("script");
-    boxiconsScript.src = "https://unpkg.com/boxicons@2.1.4/dist/boxicons.js";
-    document.body.appendChild(boxiconsScript);
 
     const accessibilityMenuStyleElement = document.createElement("style");
     accessibilityMenuStyleElement.innerHTML = accessibilityMenuStyles;
