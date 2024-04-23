@@ -349,6 +349,18 @@ const accessibilityMenuStyles = `    :root {
         bottom: 0;
     }
 
+    .contrast-style-0 {
+        filter: contrast(0.5);
+    }
+    
+    .contrast-style-1 {
+        filter: contrast(1.5);
+    }
+    
+    .contrast-style-2 {
+        filter: contrast(2);
+    }
+
     .hide-images img {
         display: none;
     }
