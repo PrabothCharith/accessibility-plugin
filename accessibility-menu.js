@@ -332,6 +332,19 @@ const accessibilityMenuStyles = `    :root {
         line-height: 2;
    }
     
+    #reset-all{
+        width: calc(100% - 20px);
+        height: 50px;
+        background: var(--acc_color_1);
+        color: var(--acc_color_2);
+        border-radius: var(--border_radius);
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+    }
+    
 `;
 const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close">
     <button id="closeBtn" style="z-index: 99999;">
@@ -346,6 +359,7 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
     </div>
     <div id="accessibility-tools">
 
+<!--invert colors-->
         <div class="acc-item">
             <div class="acc-child" id="invert-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-circle-half"
@@ -361,6 +375,7 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
             </div>
         </div>
 
+<!--grayscale-->
         <div class="acc-item">
             <div class="acc-child" id="grayscale">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -378,6 +393,8 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
                 </div>
             </div>
         </div>
+        
+<!--saturation-->
         <div class="acc-item">
             <div class="acc-child" id="saturation">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-palette"
@@ -392,6 +409,8 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
                 </div>
             </div>
         </div>
+        
+<!--links highlight-->
         <div class="acc-item">
             <div class="acc-child" id="underline">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -407,6 +426,8 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
                 </div>
             </div>
         </div>
+        
+<!--font size-->
         <div class="acc-item">
             <div class="acc-child" id="font-size">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -421,6 +442,8 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
                 </div>
             </div>
         </div>
+
+<!--line height-->
         <div class="acc-item">
             <div class="acc-child" id="line-height">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -435,6 +458,8 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
                 </div>
             </div>
         </div>
+        
+<!--letter spacing-->
         <div class="acc-item">
             <div class="acc-child" id="letter-spacing">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -449,6 +474,8 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
                 </div>
             </div>
         </div>
+        
+<!--text align-->
         <div class="acc-item">
             <div class="acc-child" id="text-align">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -463,6 +490,8 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
                 </div>
             </div>
         </div>
+        
+<!--contrast-->
         <div class="acc-item">
             <div class="acc-child" id="contrast">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -477,6 +506,8 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
                 </div>
             </div>
         </div>
+        
+<!--hide images-->
         <div class="acc-item">
             <div class="acc-child" id="hide-images">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
@@ -491,6 +522,8 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
                 <p>Hide image</p>
             </div>
         </div>
+        
+<!--hide video-->
         <div class="acc-item">
             <div class="acc-child" id="hide-video">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -501,6 +534,8 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
                 <p>Hide video</p>
             </div>
         </div>
+        
+<!--change cursor-->
         <div class="acc-item">
             <div class="acc-child" id="change-cursor">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -511,6 +546,12 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
             </div>
         </div>
     </div>
+    
+<!--reset all-->
+<button id="reset-all">
+    Reset All
+</button>
+
 </div>`;
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -838,6 +879,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelector('#hide-video').addEventListener('click', () => {
         docElemnt.classList.toggle('hide-video');
+    });
+
+    document.querySelector('#reset-all').addEventListener('click', () => {
+        docElemnt.classList.remove('invert');
+        docElemnt.classList.remove('grayscale');
+        docElemnt.classList.remove('high-saturation');
+        docElemnt.classList.remove('low-saturation');
+        docElemnt.classList.remove('underline');
+        docElemnt.classList.remove('underline-style-0');
+        docElemnt.classList.remove('underline-style-1');
+        docElemnt.classList.remove('underline-style-2');
+        docElemnt.style.fontSize = '';
+        docElemnt.classList.remove('line-height-0');
+        docElemnt.classList.remove('line-height-1');
+        docElemnt.classList.remove('line-height-2');
+        docElemnt.style.letterSpacing = '';
+        docElemnt.style.textAlign = '';
+        docElemnt.classList.remove('contrast');
+        docElemnt.classList.remove('contrast-style-0');
+        docElemnt.classList.remove('contrast-style-1');
+        docElemnt.classList.remove('contrast-style-2');
+        docElemnt.classList.remove('hide-images');
+        docElemnt.classList.remove('hide-video');
     });
 
     //save the user's settings in cookies
