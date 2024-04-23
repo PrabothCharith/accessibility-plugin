@@ -564,14 +564,14 @@ document.addEventListener("DOMContentLoaded", function () {
             item.classList.remove('active');
             if (saturationClickCount === 0) {
                 docElemnt.classList.add('low-saturation');
-                item.querySelector('p').innerText = 'High Saturation';
+                item.querySelector('p').innerText = 'Low Saturation';
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.add('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
             } else if (saturationClickCount === 1) {
                 docElemnt.classList.remove('low-saturation');
                 docElemnt.classList.add('high-saturation');
-                item.querySelector('p').innerText = 'Low Saturation';
+                item.querySelector('p').innerText = 'High Saturation';
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.add('active');
