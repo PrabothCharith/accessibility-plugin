@@ -368,6 +368,18 @@ const accessibilityMenuStyles = `    :root {
     .hide-video video {
         display: none;
     }
+   
+   .line-height-0 *{
+        line-height: 1.5;
+   }
+    
+    .line-height-1 *{
+        line-height: 1.8;
+   }
+    
+    .line-height-2 *{
+        line-height: 2;
+   }
     
 `;
 const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close">
@@ -666,23 +678,31 @@ document.addEventListener("DOMContentLoaded", function () {
             lineHeightClickCount = 0;
             item.querySelector('.acc-progress-parent').classList.add('hidden');
             item.classList.add('active');
-            docElemnt.style.lineHeight = '';
+            docElemnt.classList.remove('line-height-0');
+            docElemnt.classList.remove('line-height-1');
+            docElemnt.classList.remove('line-height-2');
         } else {
             item.classList.remove('active');
             if (lineHeightClickCount === 0) {
-                docElemnt.style.lineHeight = '1.5';
+                docElemnt.classList.add('line-height-0');
+                docElemnt.classList.remove('line-height-1');
+                docElemnt.classList.remove('line-height-2');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.add('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
             } else if (lineHeightClickCount === 1) {
-                docElemnt.style.lineHeight = '1.8';
+                docElemnt.classList.remove('line-height-0');
+                docElemnt.classList.add('line-height-1');
+                docElemnt.classList.remove('line-height-2');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.add('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
             } else if (lineHeightClickCount === 2) {
-                docElemnt.style.lineHeight = '2';
+                docElemnt.classList.remove('line-height-0');
+                docElemnt.classList.remove('line-height-1');
+                docElemnt.classList.add('line-height-2');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
