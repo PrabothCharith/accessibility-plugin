@@ -37,6 +37,7 @@ const accessibilityMenuStyles = `    :root {
         cursor: pointer;
         overflow: clip;
         border: none;
+        outline: none;
     }
 
     #accessibility-modal.left #closeBtn {
