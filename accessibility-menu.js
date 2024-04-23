@@ -286,7 +286,9 @@ const accessibilityMenuStyles = `    :root {
         font-weight: bolder;
     }
 
-    .underline-style-0 a:hover {
+    .underline-style-0 a:hover , 
+     .underline-style-2 a:hover ,
+      .underline-style-1 a:hover{
         text-decoration: underline !important;
     }
 
@@ -297,45 +299,13 @@ const accessibilityMenuStyles = `    :root {
         font-weight: bolder;
     }
 
-    .underline-style-1 a::before {
-        position: absolute;
-        content: "";
-        display: block;
-        width: 100%;
-        height: 100%;
-        border-bottom: 3px solid #FFD740;
-        border-left: 3px solid #FFD740;
-        transition: all 0.3s ease;
-    }
-
-    .underline-style-1 a:hover::before {
-        width: 100%;
-        height: 100%;
-        border: 5px solid #FFD740;
-    }
-
-    .underline-style-1 a:hover {
-        text-decoration: underline !important;
-    }
-
     .underline-style-2 a {
+        text-decoration: none;
+        background: white !important;
+        color: black !important;
         font-weight: bolder;
     }
-
-    .underline-style-2 a:hover {
-        text-decoration: underline !important;
-    }
-
-    .underline-style-2 a::before {
-        position: absolute;
-        content: "";
-        display: block;
-        width: 100%;
-        height: 5px;
-        background: #FFD740;
-        bottom: 0;
-    }
-
+    
     .contrast-style-0 {
         filter: contrast(0.5);
     }
