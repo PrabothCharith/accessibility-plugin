@@ -12,6 +12,8 @@ const accessibilityMenuStyles = `    :root {
         transition: all 0.3s ease 0s;
         font-family: 'Poppins', sans-serif;
         font-size: 16px;
+        line-height: 1;
+        letter-spacing: 0;
     }
 
     #accessibility-modal {
