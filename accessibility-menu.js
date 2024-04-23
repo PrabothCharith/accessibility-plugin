@@ -233,23 +233,6 @@ const accessibilityMenuStyles = `    :root {
         border: 1px solid var(--acc_color_1);
     }
 
-    .acc-child .check-icon {
-        display: flex;
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        padding: 1px;
-        border-radius: 50%;
-        aspect-ratio: 1/1;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-    }
-
-    .acc-child.active .check-icon {
-        opacity: 1;
-    }
-
     .acc-progress-parent {
         display: flex;
         justify-content: space-between;
