@@ -1,6 +1,6 @@
 # Accessibility Plugin
 
-[![npm version](https://badge.fury.io/js/accessibility-plugin.svg)](https://badge.fury.io/js/accessibility-plugin)
+[![npm version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=js&r=r&ts=1683906897&type=6e&v=1.0.1&x2=0)](https://badge.fury.io/js/accessibility-plugin)
 
 ## Description
 
@@ -14,7 +14,7 @@ You can install the Accessibility Plugin using npm. Run the following command in
 
 ### OR
 
-You can use this `CDN` easily
+You can use this `CDN` easily.
 
 <pre><code>https://cdn.jsdelivr.net/gh/PrabothCharith/accessibility-plugin@main/accessibility-menu.min.js</code></pre>
 <pre><code><script src="https://cdn.jsdelivr.net/gh/PrabothCharith/accessibility-plugin@main/accessibility-menu.min.js"></script></code></pre>
