@@ -29,6 +29,7 @@ After installation, you can link the `javascript` file _normally_ using
 You can use `min.js` file _as your requirement_
 <pre><code><script src="node_modules/accessibility-plugin/accessibility-menu.min.js"></script></code></pre>
 
+>[!tip]
 > **Link the `Javascript` file `after all javascript` for better output**
 
 ## Customization
