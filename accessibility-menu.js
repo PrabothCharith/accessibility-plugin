@@ -312,6 +312,343 @@ const accessibilityMenuStyles = `    :root {
         filter: contrast(2);
     }
 
+    /*Apply Two or more filters*/
+    .invert.grayscale {
+        filter: invert(1) grayscale(1);
+    }
+    
+    .invert.low-saturation {
+        filter: invert(1) saturate(20%);
+    }
+    
+    .invert.high-saturation {
+        filter: invert(1) saturate(200%);
+    }
+    
+    .invert.contrast-style-0 {
+        filter: invert(1) contrast(0.5);
+    }
+    
+    .invert.contrast-style-1 {
+        filter: invert(1) contrast(1.5);
+    }
+    
+    .invert.contrast-style-2 {
+        filter: invert(1) contrast(2);
+    }
+    
+    .grayscale.low-saturation {
+        filter: grayscale(1) saturate(20%);
+    }
+    
+    .grayscale.high-saturation {
+        filter: grayscale(1) saturate(200%);
+    }
+    
+    .grayscale.contrast-style-0 {
+        filter: grayscale(1) contrast(0.5);
+    }
+    
+    .grayscale.contrast-style-1 {
+        filter: grayscale(1) contrast(1.5);
+    }
+    
+    .grayscale.contrast-style-2 {
+        filter: grayscale(1) contrast(2);
+    }
+    
+    .low-saturation.high-saturation {
+        filter: saturate(20%) saturate(200%);
+    }
+    
+    .low-saturation.contrast-style-0 {
+        filter: saturate(20%) contrast(0.5);
+    }
+    
+    .low-saturation.contrast-style-1 {
+        filter: saturate(20%) contrast(1.5);
+    }
+    
+    .low-saturation.contrast-style-2 {
+        filter: saturate(20%) contrast(2);
+    }
+    
+    .high-saturation.contrast-style-0 {
+        filter: saturate(200%) contrast(0.5);
+    }
+    
+    .high-saturation.contrast-style-1 {
+        filter: saturate(200%) contrast(1.5);
+    }
+    
+    .high-saturation.contrast-style-2 {
+        filter: saturate(200%) contrast(2);
+    }
+    
+    .contrast-style-0.contrast-style-1 {
+        filter: contrast(0.5) contrast(1.5);
+    }
+    
+    .contrast-style-0.contrast-style-2 {
+        filter: contrast(0.5) contrast(2);
+    }
+    
+    .contrast-style-1.contrast-style-2 {
+        filter: contrast(1.5) contrast(2);
+    }
+    
+    .invert.grayscale.low-saturation {
+        filter: invert(1) grayscale(1) saturate(20%);
+    }
+    
+    .invert.grayscale.high-saturation {
+        filter: invert(1) grayscale(1) saturate(200%);
+    }
+    
+    .invert.grayscale.contrast-style-0 {
+        filter: invert(1) grayscale(1) contrast(0.5);
+    }
+    
+    .invert.grayscale.contrast-style-1 {
+        filter: invert(1) grayscale(1) contrast(1.5);
+    }
+    
+    .invert.grayscale.contrast-style-2 {
+        filter: invert(1) grayscale(1) contrast(2);
+    }
+    
+    .invert.low-saturation.high-saturation {
+        filter: invert(1) saturate(20%) saturate(200%);
+    }
+    
+    .invert.low-saturation.contrast-style-0 {
+        filter: invert(1) saturate(20%) contrast(0.5);
+    }
+    
+    .invert.low-saturation.contrast-style-1 {
+        filter: invert(1) saturate(20%) contrast(1.5);
+    }
+    
+    .invert.low-saturation.contrast-style-2 {
+        filter: invert(1) saturate(20%) contrast(2);
+    }
+    
+    .invert.high-saturation.contrast-style-0 {
+        filter: invert(1) saturate(200%) contrast(0.5);
+    }
+    
+    .invert.high-saturation.contrast-style-1 {
+        filter: invert(1) saturate(200%) contrast(1.5);
+    }
+    
+    .invert.high-saturation.contrast-style-2 {
+        filter: invert(1) saturate(200%) contrast(2);
+    }
+    
+    .invert.contrast-style-0.contrast-style-1 {
+        filter: invert(1) contrast(0.5) contrast(1.5);
+    }
+    
+    .invert.contrast-style-0.contrast-style-2 {
+        filter: invert(1) contrast(0.5) contrast(2);
+    }
+    
+    .invert.contrast-style-1.contrast-style-2 {
+        filter: invert(1) contrast(1.5) contrast(2);
+    }
+    
+    .grayscale.low-saturation.high-saturation {
+        filter: grayscale(1) saturate(20%) saturate(200%);
+    }
+    
+    .grayscale.low-saturation.contrast-style-0 {
+        filter: grayscale(1) saturate(20%) contrast(0.5);
+    }
+    
+    .grayscale.low-saturation.contrast-style-1 {
+        filter: grayscale(1) saturate(20%) contrast(1.5);
+    }
+    
+    .grayscale.low-saturation.contrast-style-2 {
+        filter: grayscale(1) saturate(20%) contrast(2);
+    }
+    
+    .grayscale.high-saturation.contrast-style-0 {
+        filter: grayscale(1) saturate(200%) contrast(0.5);
+    }
+    
+    .grayscale.high-saturation.contrast-style-1 {
+        filter: grayscale(1) saturate(200%) contrast(1.5);
+    }
+    
+    .grayscale.high-saturation.contrast-style-2 {
+        filter: grayscale(1) saturate(200%) contrast(2);
+    }
+    
+    .grayscale.contrast-style-0.contrast-style-1 {
+        filter: grayscale(1) contrast(0.5) contrast(1.5);
+    }
+    
+    .grayscale.contrast-style-0.contrast-style-2 {
+        filter: grayscale(1) contrast(0.5) contrast(2);
+    }
+    
+    .grayscale.contrast-style-1.contrast-style-2 {
+        filter: grayscale(1) contrast(1.5) contrast(2);
+    }
+    
+    .low-saturation.high-saturation.contrast-style-0 {
+        filter: saturate(20%) saturate(200%) contrast(0.5);
+    }
+    
+    .low-saturation.high-saturation.contrast-style-1 {
+        filter: saturate(20%) saturate(200%) contrast(1.5);
+    }
+    
+    .low-saturation.high-saturation.contrast-style-2 {
+        filter: saturate(20%) saturate(200%) contrast(2);
+    }
+    
+    .low-saturation.contrast-style-0.contrast-style-1 {
+        filter: saturate(20%) contrast(0.5) contrast(1.5);
+    }
+    
+    .low-saturation.contrast-style-0.contrast-style-2 {
+        filter: saturate(20%) contrast(0.5) contrast(2);
+    }
+    
+    .low-saturation.contrast-style-1.contrast-style-2 {
+        filter: saturate(20%) contrast(1.5) contrast(2);
+    }
+    
+    .high-saturation.contrast-style-0.contrast-style-1 {
+        filter: saturate(200%) contrast(0.5) contrast(1.5);
+    }
+    
+    .high-saturation.contrast-style-0.contrast-style-2 {
+        filter: saturate(200%) contrast(0.5) contrast(2);
+    }
+    
+    .high-saturation.contrast-style-1.contrast-style-2 {
+        filter: saturate(200%) contrast(1.5) contrast(2);
+    }
+    
+    .contrast-style-0.contrast-style-1.contrast-style-2 {
+        filter: contrast(0.5) contrast(1.5) contrast(2);
+    }
+    
+    .invert.grayscale.low-saturation.high-saturation {
+        filter: invert(1) grayscale(1) saturate(20%) saturate(200%);
+    }
+    
+    .invert.grayscale.low-saturation.contrast-style-0 {
+        filter: invert(1) grayscale(1) saturate(20%) contrast(0.5);
+    }
+    
+    .invert.grayscale.low-saturation.contrast-style-1 {
+        filter: invert(1) grayscale(1) saturate(20%) contrast(1.5);
+    }
+    
+    .invert.grayscale.low-saturation.contrast-style-2 {
+        filter: invert(1) grayscale(1) saturate(20%) contrast(2);
+    }
+    
+    .invert.grayscale.high-saturation.contrast-style-0 {
+        filter: invert(1) grayscale(1) saturate(200%) contrast(0.5);
+    }
+    
+    .invert.grayscale.high-saturation.contrast-style-1 {
+        filter: invert(1) grayscale(1) saturate(200%) contrast(1.5);
+    }
+    
+    .invert.grayscale.high-saturation.contrast-style-2 {
+        filter: invert(1) grayscale(1) saturate(200%) contrast(2);
+    }
+    
+    .invert.low-saturation.high-saturation.contrast-style-0 {
+        filter: invert(1) saturate(20%) saturate(200%) contrast(0.5);
+    }
+    
+    .invert.low-saturation.high-saturation.contrast-style-1 {
+        filter: invert(1) saturate(20%) saturate(200%) contrast(1.5);
+    }
+    
+    .invert.low-saturation.high-saturation.contrast-style-2 {
+        filter: invert(1) saturate(20%) saturate(200%) contrast(2);
+    }
+    
+    .invert.low-saturation.contrast-style-0.contrast-style-1 {
+        filter: invert(1) saturate(20%) contrast(0.5) contrast(1.5);
+    }
+    
+    .invert.low-saturation.contrast-style-0.contrast-style-2 {
+        filter: invert(1) saturate(20%) contrast(0.5) contrast(2);
+    }
+    
+    .invert.low-saturation.contrast-style-1.contrast-style-2 {
+        filter: invert(1) saturate(20%) contrast(1.5) contrast(2);
+    }
+    
+    .invert.high-saturation.contrast-style-0.contrast-style-1 {
+        filter: invert(1) saturate(200%) contrast(0.5) contrast(1.5);
+    }
+    
+    .invert.high-saturation.contrast-style-0.contrast-style-2 {
+        filter: invert(1) saturate(200%) contrast(0.5) contrast(2);
+    }
+    
+    .invert.high-saturation.contrast-style-1.contrast-style-2 {
+        filter: invert(1) saturate(200%) contrast(1.5) contrast(2);
+    }
+    
+    .grayscale.low-saturation.high-saturation.contrast-style-0 {
+        filter: grayscale(1) saturate(20%) saturate(200%) contrast(0.5);
+    }
+    
+    .grayscale.low-saturation.high-saturation.contrast-style-1 {
+        filter: grayscale(1) saturate(20%) saturate(200%) contrast(1.5);
+    }
+    
+    .grayscale.low-saturation.high-saturation.contrast-style-2 {
+        filter: grayscale(1) saturate(20%) saturate(200%) contrast(2);
+    }
+    
+    .grayscale.low-saturation.contrast-style-0.contrast-style-1 {
+        filter: grayscale(1) saturate(20%) contrast(0.5) contrast(1.5);
+    }
+    
+    .grayscale.low-saturation.contrast-style-0.contrast-style-2 {
+        filter: grayscale(1) saturate(20%) contrast(0.5) contrast(2);
+    }
+    
+    .grayscale.low-saturation.contrast-style-1.contrast-style-2 {
+        filter: grayscale(1) saturate(20%) contrast(1.5) contrast(2);
+    }
+    
+    .grayscale.high-saturation.contrast-style-0.contrast-style-1 {
+        filter: grayscale(1) saturate(200%) contrast(0.5) contrast(1.5);
+    }
+    
+    .grayscale.high-saturation.contrast-style-0.contrast-style-2 {
+        filter: grayscale(1) saturate(200%) contrast(0.5) contrast(2);
+    }
+    
+    .grayscale.high-saturation.contrast-style-1.contrast-style-2 {
+        filter: grayscale(1) saturate(200%) contrast(1.5) contrast(2);
+    }
+    
+    .low-saturation.high-saturation.contrast-style-0.contrast-style-1 {
+        filter: saturate(20%) saturate(200%) contrast(0.5) contrast(1.5);
+    }
+    
+    .low-saturation.high-saturation.contrast-style-0.contrast-style-2 {
+        filter: saturate(20%) saturate(200%) contrast(0.5) contrast(2);
+    }
+    
+    .low-saturation.high-saturation.contrast-style-1.contrast-style-2 {
+        filter: saturate(20%) saturate(200%) contrast(1.5) contrast(2);
+    }
+
     .hide-images img {
         display: none;
     }
