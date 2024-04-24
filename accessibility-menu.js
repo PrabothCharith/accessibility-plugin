@@ -683,6 +683,9 @@ const accessibilityMenuStyles = `    :root {
         margin: 10px;
     }
     
+    #reset-all:hover{
+        filter: opacity(0.8);
+    }
 `;
 const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close" style="z-index: 99999999;">
     <button id="closeBtn" style="z-index: 99999999;">
