@@ -881,6 +881,11 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
                           fill="black"/>
                 </svg>
                 <p>Change Cursors</p>
+                <div class="acc-progress-parent hidden">
+                    <div class="acc-progress-child acc-progress-child-1"></div>
+                    <div class="acc-progress-child acc-progress-child-2"></div>
+                    <div class="acc-progress-child acc-progress-child-3"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -1250,6 +1255,48 @@ document.addEventListener("DOMContentLoaded", function () {
                 icon.style.fill = 'var(--acc_color_1)';
             });
         });
+    });
+
+    let cursorClickCount = 0;
+    document.querySelector('#change-cursor').addEventListener('click', () => {
+        const item = document.querySelector('#change-cursor');
+        if (cursorClickCount === 3) {
+            cursorClickCount = 0;
+            item.querySelector('.acc-progress-parent').classList.add('hidden');
+            item.classList.add('active');
+            docElement.classList.remove('cursor-0');
+            docElement.classList.remove('cursor-1');
+            docElement.classList.remove('cursor-2');
+        } else {
+            item.classList.remove('active');
+            if (cursorClickCount === 0) {
+                docElement.classList.add('cursor-0');
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.add('active');
+                item.querySelector('.acc-progress-child-2').classList.remove('active');
+                item.querySelector('.acc-progress-child-3').classList.remove('active');
+                docElement.classList.remove('cursor-1');
+                docElement.classList.remove('cursor-2');
+            } else if (cursorClickCount === 1) {
+                docElement.classList.remove('cursor-0');
+                docElement.classList.add('cursor-1');
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.remove('active');
+                item.querySelector('.acc-progress-child-2').classList.add('active');
+                item.querySelector('.acc-progress-child-3').classList.remove('active');
+                docElement.classList.remove('cursor-2');
+            } else if (cursorClickCount === 2) {
+                docElement.classList.remove('cursor-0');
+                docElement.classList.remove('cursor-1');
+                docElement.classList.add('cursor-2');
+                item.querySelector('.acc-progress-parent').classList.remove('hidden');
+                item.querySelector('.acc-progress-child-1').classList.remove('active');
+                item.querySelector('.acc-progress-child-2').classList.remove('active');
+                item.querySelector('.acc-progress-child-3').classList.add('active');
+            }
+            cursorClickCount++;
+        }
+
     });
 
     //save the user's settings in cookies
