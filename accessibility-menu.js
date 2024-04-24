@@ -21,7 +21,8 @@ const accessibilityMenuStyles = `    :root {
         position: fixed;
         top: 5vh;
         left: 0;
-        width: 100%;
+        width: 98%;
+        max-width: 500px;
         height: 90vh;
         background: var(--acc_color_2);
         z-index: 1000;
@@ -73,21 +74,18 @@ const accessibilityMenuStyles = `    :root {
     #accessibility-modal.left {
         left: 0;
         right: auto;
-        max-width: 500px;
         border-radius: 0 var(--border_radius) var(--border_radius) 0;
     }
 
     #accessibility-modal.right {
         right: 0;
         left: auto;
-        max-width: 500px;
         border-radius: var(--border_radius) 0 0 var(--border_radius);
     }
 
     #accessibility-modal.top {
         top: 0;
         left: 1%;
-        width: 98%;
         height: auto;
         max-height: 90vh;
         border-radius: 0 0 var(--border_radius) var(--border_radius);
@@ -97,7 +95,6 @@ const accessibilityMenuStyles = `    :root {
         top: auto;
         bottom: 0;
         left: 1%;
-        width: 98%;
         height: auto;
         max-height: 90vh;
         border-radius: var(--border_radius) var(--border_radius) 0 0;
