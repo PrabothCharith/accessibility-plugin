@@ -128,6 +128,11 @@ const accessibilityMenuStyles = `    :root {
     }
 
     #accessibility-modal #closeBtn svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    #accessibility-modal.close #closeBtn svg {
         width: 40px;
         height: 40px;
     }
