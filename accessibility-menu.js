@@ -10,7 +10,7 @@ const accessibilityMenuStyles = `    :root {
 
     #accessibility-modal, #accessibility-modal * {
         transition: all 0.3s ease 0s;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'calibri', sans-serif;
         font-size: 16px;
         line-height: 1;
         letter-spacing: 0;
@@ -49,7 +49,7 @@ const accessibilityMenuStyles = `    :root {
     #accessibility-modal.left #closeBtn {
         top: 0;
         right: 0;
-        margin: 15px 0;
+        margin: 15px;
     }
 
     #accessibility-modal.right #closeBtn {
