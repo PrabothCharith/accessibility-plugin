@@ -934,16 +934,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    const docElemnt = document.querySelector('html');
+    const docElement = document.querySelector('html');
 
     document.querySelector('#invert-colors').addEventListener('click', () => {
         const item = document.querySelector('#invert-colors');
-        docElemnt.classList.toggle('invert');
+        docElement.classList.toggle('invert');
     });
 
     document.querySelector('#grayscale').addEventListener('click', () => {
         const item = document.querySelector('#grayscale');
-        docElemnt.classList.toggle('grayscale');
+        docElement.classList.toggle('grayscale');
     });
 
     let saturationClickCount = 0;
@@ -954,19 +954,19 @@ document.addEventListener("DOMContentLoaded", function () {
             item.querySelector('p').innerText = 'Low Saturation';
             item.querySelector('.acc-progress-parent').classList.add('hidden');
             item.classList.add('active');
-            docElemnt.classList.remove('high-saturation');
-            docElemnt.classList.remove('low-saturation');
+            docElement.classList.remove('high-saturation');
+            docElement.classList.remove('low-saturation');
         } else {
             item.classList.remove('active');
             if (saturationClickCount === 0) {
-                docElemnt.classList.add('low-saturation');
+                docElement.classList.add('low-saturation');
                 item.querySelector('p').innerText = 'Low Saturation';
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.add('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
             } else if (saturationClickCount === 1) {
-                docElemnt.classList.remove('low-saturation');
-                docElemnt.classList.add('high-saturation');
+                docElement.classList.remove('low-saturation');
+                docElement.classList.add('high-saturation');
                 item.querySelector('p').innerText = 'High Saturation';
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
@@ -983,33 +983,33 @@ document.addEventListener("DOMContentLoaded", function () {
             underlineClickCount = 0;
             item.querySelector('.acc-progress-parent').classList.add('hidden');
             item.classList.add('active');
-            docElemnt.classList.remove('underline');
-            docElemnt.classList.remove('underline-style-0');
-            docElemnt.classList.remove('underline-style-1');
-            docElemnt.classList.remove('underline-style-2');
+            docElement.classList.remove('underline');
+            docElement.classList.remove('underline-style-0');
+            docElement.classList.remove('underline-style-1');
+            docElement.classList.remove('underline-style-2');
         } else {
             item.classList.remove('active');
             if (underlineClickCount === 0) {
-                docElemnt.classList.add('underline');
+                docElement.classList.add('underline');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.add('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
-                docElemnt.classList.add('underline-style-0');
-                docElemnt.classList.remove('underline-style-1');
-                docElemnt.classList.remove('underline-style-2');
+                docElement.classList.add('underline-style-0');
+                docElement.classList.remove('underline-style-1');
+                docElement.classList.remove('underline-style-2');
             } else if (underlineClickCount === 1) {
-                docElemnt.classList.remove('underline-style-0');
-                docElemnt.classList.add('underline-style-1');
-                docElemnt.classList.remove('underline-style-2');
+                docElement.classList.remove('underline-style-0');
+                docElement.classList.add('underline-style-1');
+                docElement.classList.remove('underline-style-2');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.add('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
             } else if (underlineClickCount === 2) {
-                docElemnt.classList.remove('underline-style-0');
-                docElemnt.classList.remove('underline-style-1');
-                docElemnt.classList.add('underline-style-2');
+                docElement.classList.remove('underline-style-0');
+                docElement.classList.remove('underline-style-1');
+                docElement.classList.add('underline-style-2');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
@@ -1027,23 +1027,23 @@ document.addEventListener("DOMContentLoaded", function () {
             fontSizeClickCount = 0;
             item.querySelector('.acc-progress-parent').classList.add('hidden');
             item.classList.add('active');
-            docElemnt.style.fontSize = '';
+            docElement.style.fontSize = '';
         } else {
             item.classList.remove('active');
             if (fontSizeClickCount === 0) {
-                docElemnt.style.fontSize = '1.3rem';
+                docElement.style.fontSize = '1.3rem';
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.add('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
             } else if (fontSizeClickCount === 1) {
-                docElemnt.style.fontSize = '1.5rem';
+                docElement.style.fontSize = '1.5rem';
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.add('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
             } else if (fontSizeClickCount === 2) {
-                docElemnt.style.fontSize = '1.8rem';
+                docElement.style.fontSize = '1.8rem';
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
@@ -1061,31 +1061,31 @@ document.addEventListener("DOMContentLoaded", function () {
             lineHeightClickCount = 0;
             item.querySelector('.acc-progress-parent').classList.add('hidden');
             item.classList.add('active');
-            docElemnt.classList.remove('line-height-0');
-            docElemnt.classList.remove('line-height-1');
-            docElemnt.classList.remove('line-height-2');
+            docElement.classList.remove('line-height-0');
+            docElement.classList.remove('line-height-1');
+            docElement.classList.remove('line-height-2');
         } else {
             item.classList.remove('active');
             if (lineHeightClickCount === 0) {
-                docElemnt.classList.add('line-height-0');
-                docElemnt.classList.remove('line-height-1');
-                docElemnt.classList.remove('line-height-2');
+                docElement.classList.add('line-height-0');
+                docElement.classList.remove('line-height-1');
+                docElement.classList.remove('line-height-2');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.add('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
             } else if (lineHeightClickCount === 1) {
-                docElemnt.classList.remove('line-height-0');
-                docElemnt.classList.add('line-height-1');
-                docElemnt.classList.remove('line-height-2');
+                docElement.classList.remove('line-height-0');
+                docElement.classList.add('line-height-1');
+                docElement.classList.remove('line-height-2');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.add('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
             } else if (lineHeightClickCount === 2) {
-                docElemnt.classList.remove('line-height-0');
-                docElemnt.classList.remove('line-height-1');
-                docElemnt.classList.add('line-height-2');
+                docElement.classList.remove('line-height-0');
+                docElement.classList.remove('line-height-1');
+                docElement.classList.add('line-height-2');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
@@ -1103,23 +1103,23 @@ document.addEventListener("DOMContentLoaded", function () {
             letterSpacingClickCount = 0;
             item.querySelector('.acc-progress-parent').classList.add('hidden');
             item.classList.add('active');
-            docElemnt.style.letterSpacing = '';
+            docElement.style.letterSpacing = '';
         } else {
             item.classList.remove('active');
             if (letterSpacingClickCount === 0) {
-                docElemnt.style.letterSpacing = '0.1rem';
+                docElement.style.letterSpacing = '0.1rem';
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.add('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
             } else if (letterSpacingClickCount === 1) {
-                docElemnt.style.letterSpacing = '0.2rem';
+                docElement.style.letterSpacing = '0.2rem';
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.add('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
             } else if (letterSpacingClickCount === 2) {
-                docElemnt.style.letterSpacing = '0.3rem';
+                docElement.style.letterSpacing = '0.3rem';
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
@@ -1137,25 +1137,25 @@ document.addEventListener("DOMContentLoaded", function () {
             textAlignClickCount = 0;
             item.querySelector('.acc-progress-parent').classList.add('hidden');
             item.classList.add('active');
-            docElemnt.style.textAlign = '';
+            docElement.style.textAlign = '';
         } else {
             item.classList.remove('active');
             if (textAlignClickCount === 0) {
-                docElemnt.style.textAlign = 'left';
+                docElement.style.textAlign = 'left';
                 item.parentElement.querySelector('svg').innerHTML = `<path d="M4.5 7C4.22386 7 4 6.77614 4 6.5C4 6.22386 4.22386 6 4.5 6H19.5C19.7761 6 20 6.22386 20 6.5C20 6.77614 19.7761 7 19.5 7H4.5ZM4.5 15C4.22386 15 4 14.7761 4 14.5C4 14.2239 4.22386 14 4.5 14H19.5C19.7761 14 20 14.2239 20 14.5C20 14.7761 19.7761 15 19.5 15H4.5ZM4.5 11C4.22386 11 4 10.7761 4 10.5C4 10.2239 4.22386 10 4.5 10H13.5C13.7761 10 14 10.2239 14 10.5C14 10.7761 13.7761 11 13.5 11H4.5ZM4.5 19C4.22386 19 4 18.7761 4 18.5C4 18.2239 4.22386 18 4.5 18H13.5C13.7761 18 14 18.2239 14 18.5C14 18.7761 13.7761 19 13.5 19H4.5Z" fill="black"/>`;
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.add('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
             } else if (textAlignClickCount === 1) {
-                docElemnt.style.textAlign = 'center';
+                docElement.style.textAlign = 'center';
                 item.parentElement.querySelector('svg').innerHTML = `<path d="M4.5 7C4.22386 7 4 6.77614 4 6.5C4 6.22386 4.22386 6 4.5 6H19.5C19.7761 6 20 6.22386 20 6.5C20 6.77614 19.7761 7 19.5 7H4.5ZM4.5 15C4.22386 15 4 14.7761 4 14.5C4 14.2239 4.22386 14 4.5 14H19.5C19.7761 14 20 14.2239 20 14.5C20 14.7761 19.7761 15 19.5 15H4.5ZM7.5 11C7.22386 11 7 10.7761 7 10.5C7 10.2239 7.22386 10 7.5 10H16.5C16.7761 10 17 10.2239 17 10.5C17 10.7761 16.7761 11 16.5 11H7.5ZM7.5 19C7.22386 19 7 18.7761 7 18.5C7 18.2239 7.22386 18 7.5 18H16.5C16.7761 18 17 18.2239 17 18.5C17 18.7761 16.7761 19 16.5 19H7.5Z" fill="black"/>`;
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.add('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
             } else if (textAlignClickCount === 2) {
-                docElemnt.style.textAlign = 'right';
+                docElement.style.textAlign = 'right';
                 item.parentElement.querySelector(`svg`).innerHTML = `<path d="M4.5 7C4.22386 7 4 6.77614 4 6.5C4 6.22386 4.22386 6 4.5 6H19.5C19.7761 6 20 6.22386 20 6.5C20 6.77614 19.7761 7 19.5 7H4.5ZM4.5 15C4.22386 15 4 14.7761 4 14.5C4 14.2239 4.22386 14 4.5 14H19.5C19.7761 14 20 14.2239 20 14.5C20 14.7761 19.7761 15 19.5 15H4.5ZM10.5 11C10.2239 11 10 10.7761 10 10.5C10 10.2239 10.2239 10 10.5 10H19.5C19.7761 10 20 10.2239 20 10.5C20 10.7761 19.7761 11 19.5 11H10.5ZM10.5 19C10.2239 19 10 18.7761 10 18.5C10 18.2239 10.2239 18 10.5 18H19.5C19.7761 18 20 18.2239 20 18.5C20 18.7761 19.7761 19 19.5 19H10.5Z" fill="black"/>`;
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
@@ -1174,33 +1174,33 @@ document.addEventListener("DOMContentLoaded", function () {
             contrastClickCount = 0;
             item.querySelector('.acc-progress-parent').classList.add('hidden');
             item.classList.add('active');
-            docElemnt.classList.remove('contrast');
-            docElemnt.classList.remove('contrast-style-0');
-            docElemnt.classList.remove('contrast-style-1');
-            docElemnt.classList.remove('contrast-style-2');
+            docElement.classList.remove('contrast');
+            docElement.classList.remove('contrast-style-0');
+            docElement.classList.remove('contrast-style-1');
+            docElement.classList.remove('contrast-style-2');
         } else {
             item.classList.remove('active');
             if (contrastClickCount === 0) {
-                docElemnt.classList.add('contrast');
+                docElement.classList.add('contrast');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.add('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
-                docElemnt.classList.add('contrast-style-0');
-                docElemnt.classList.remove('contrast-style-1');
-                docElemnt.classList.remove('contrast-style-2');
+                docElement.classList.add('contrast-style-0');
+                docElement.classList.remove('contrast-style-1');
+                docElement.classList.remove('contrast-style-2');
             } else if (contrastClickCount === 1) {
-                docElemnt.classList.remove('contrast-style-0');
-                docElemnt.classList.add('contrast-style-1');
-                docElemnt.classList.remove('contrast-style-2');
+                docElement.classList.remove('contrast-style-0');
+                docElement.classList.add('contrast-style-1');
+                docElement.classList.remove('contrast-style-2');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.add('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
             } else if (contrastClickCount === 2) {
-                docElemnt.classList.remove('contrast-style-0');
-                docElemnt.classList.remove('contrast-style-1');
-                docElemnt.classList.add('contrast-style-2');
+                docElement.classList.remove('contrast-style-0');
+                docElement.classList.remove('contrast-style-1');
+                docElement.classList.add('contrast-style-2');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
@@ -1212,34 +1212,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.querySelector('#hide-images').addEventListener('click', () => {
-        docElemnt.classList.toggle('hide-images');
+        docElement.classList.toggle('hide-images');
     });
 
     document.querySelector('#hide-video').addEventListener('click', () => {
-        docElemnt.classList.toggle('hide-video');
+        docElement.classList.toggle('hide-video');
     });
 
     document.querySelector('#reset-all').addEventListener('click', () => {
-        docElemnt.classList.remove('invert');
-        docElemnt.classList.remove('grayscale');
-        docElemnt.classList.remove('high-saturation');
-        docElemnt.classList.remove('low-saturation');
-        docElemnt.classList.remove('underline');
-        docElemnt.classList.remove('underline-style-0');
-        docElemnt.classList.remove('underline-style-1');
-        docElemnt.classList.remove('underline-style-2');
-        docElemnt.style.fontSize = '';
-        docElemnt.classList.remove('line-height-0');
-        docElemnt.classList.remove('line-height-1');
-        docElemnt.classList.remove('line-height-2');
-        docElemnt.style.letterSpacing = '';
-        docElemnt.style.textAlign = '';
-        docElemnt.classList.remove('contrast');
-        docElemnt.classList.remove('contrast-style-0');
-        docElemnt.classList.remove('contrast-style-1');
-        docElemnt.classList.remove('contrast-style-2');
-        docElemnt.classList.remove('hide-images');
-        docElemnt.classList.remove('hide-video');
+        docElement.classList.remove('invert');
+        docElement.classList.remove('grayscale');
+        docElement.classList.remove('high-saturation');
+        docElement.classList.remove('low-saturation');
+        docElement.classList.remove('underline');
+        docElement.classList.remove('underline-style-0');
+        docElement.classList.remove('underline-style-1');
+        docElement.classList.remove('underline-style-2');
+        docElement.style.fontSize = '';
+        docElement.classList.remove('line-height-0');
+        docElement.classList.remove('line-height-1');
+        docElement.classList.remove('line-height-2');
+        docElement.style.letterSpacing = '';
+        docElement.style.textAlign = '';
+        docElement.classList.remove('contrast');
+        docElement.classList.remove('contrast-style-0');
+        docElement.classList.remove('contrast-style-1');
+        docElement.classList.remove('contrast-style-2');
+        docElement.classList.remove('hide-images');
+        docElement.classList.remove('hide-video');
 
         //reset the progress bar
         document.querySelectorAll('.acc-progress-parent').forEach(child => {
