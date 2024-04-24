@@ -1239,6 +1239,19 @@ document.addEventListener("DOMContentLoaded", function () {
         docElemnt.classList.remove('contrast-style-2');
         docElemnt.classList.remove('hide-images');
         docElemnt.classList.remove('hide-video');
+
+        //reset the progress bar
+        document.querySelectorAll('.acc-progress-parent').forEach(child => {
+            child.classList.add('hidden');
+        });
+
+        //reset the active state of the accessibility tools
+        document.querySelectorAll('.acc-child').forEach(child => {
+            child.classList.remove('active');
+            child.querySelectorAll('path').forEach(icon => {
+                icon.style.fill = 'var(--acc_color_1)';
+            });
+        });
     });
 
     //save the user's settings in cookies
