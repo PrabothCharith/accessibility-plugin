@@ -686,6 +686,9 @@ const accessibilityMenuStyles = `    :root {
     #reset-all:hover{
         filter: opacity(0.8);
     }
+    
+    .cursor{}
+    
 `;
 const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close" style="z-index: 99999999;">
     <button id="closeBtn" style="z-index: 99999999;">
@@ -889,7 +892,11 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
             </div>
         </div>
     </div>
-    
+    <div class="cursor">
+        <div class="cursor-item" id="cursor-1"></div>
+        <div class="cursor-item" id="cursor-2"></div>
+        <div class="cursor-item" id="cursor-3"></div>
+    </div>
 <!--reset all-->
 <button id="reset-all">
     Reset All
@@ -1242,6 +1249,9 @@ document.addEventListener("DOMContentLoaded", function () {
         docElement.classList.remove('contrast-style-2');
         docElement.classList.remove('hide-images');
         docElement.classList.remove('hide-video');
+        docElement.classList.remove('cursor-0');
+        docElement.classList.remove('cursor-1');
+        docElement.classList.remove('cursor-2');
 
         //reset the progress bar
         document.querySelectorAll('.acc-progress-parent').forEach(child => {
@@ -1271,20 +1281,20 @@ document.addEventListener("DOMContentLoaded", function () {
             item.classList.remove('active');
             if (cursorClickCount === 0) {
                 docElement.classList.add('cursor-0');
+                docElement.classList.remove('cursor-1');
+                docElement.classList.remove('cursor-2');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.add('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
-                docElement.classList.remove('cursor-1');
-                docElement.classList.remove('cursor-2');
             } else if (cursorClickCount === 1) {
                 docElement.classList.remove('cursor-0');
                 docElement.classList.add('cursor-1');
+                docElement.classList.remove('cursor-2');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.add('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
-                docElement.classList.remove('cursor-2');
             } else if (cursorClickCount === 2) {
                 docElement.classList.remove('cursor-0');
                 docElement.classList.remove('cursor-1');
