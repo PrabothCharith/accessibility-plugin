@@ -37,7 +37,8 @@ const accessibilityMenuStyles = `    :root {
         width: 50px;
         height: 50px;
         border-radius: var(--border_radius);
-        background: var(--acc_color_2);
+        background: var(--acc_color_1);
+        color: var(--acc_color_2);
         cursor: pointer;
         overflow: clip;
         border: none;
@@ -45,6 +46,7 @@ const accessibilityMenuStyles = `    :root {
         display: flex;
         justify-content: center;
         align-items: center;
+        transform: translate(0,-4px);
     }
 
     #accessibility-modal.left #closeBtn {
@@ -125,6 +127,7 @@ const accessibilityMenuStyles = `    :root {
         font-size: 20px;
         cursor: pointer;
         margin: 0;
+        transform: translate(0,0);
     }
 
     #accessibility-modal #closeBtn svg {
