@@ -957,6 +957,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const accessibilityTools = document.getElementById('accessibility-tools');
 
     closeBtn.addEventListener('click', () => {
+        accessibilityModalOpenCloseToggle();
+    });
+
+    function accessibilityModalOpenCloseToggle() {
         accessibilityModal.classList.toggle('close');
         closeBtn.innerHTML = accessibilityModal.classList.contains('close') ? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-universal-access-circle" viewBox="0 0 16 16">\n' +
             '  <path d="M8 4.143A1.071 1.071 0 1 0 8 2a1.071 1.071 0 0 0 0 2.143m-4.668 1.47 3.24.316v2.5l-.323 4.585A.383.383 0 0 0 7 13.14l.826-4.017c.045-.18.301-.18.346 0L9 13.139a.383.383 0 0 0 .752-.125L9.43 8.43v-2.5l3.239-.316a.38.38 0 0 0-.047-.756H3.379a.38.38 0 0 0-.047.756Z"/>\n' +
@@ -970,7 +974,7 @@ document.addEventListener("DOMContentLoaded", function () {
             '</svg>' : accessibilityModal.classList.contains('right') ? '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">\n' +
             '  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>\n' +
             '</svg>' : '';
-    });
+    }
 
     const accItems = document.querySelectorAll('.acc-item');
 
