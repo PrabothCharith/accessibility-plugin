@@ -1413,7 +1413,6 @@ document.addEventListener("DOMContentLoaded", function () {
         docElement.classList.remove('grayscale');
         docElement.classList.remove('high-saturation');
         docElement.classList.remove('low-saturation');
-        docElement.classList.remove('underline');
         docElement.classList.remove('underline-style-0');
         docElement.classList.remove('underline-style-1');
         docElement.classList.remove('underline-style-2');
@@ -1608,81 +1607,151 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    //save the user's settings in cookies
-    function setCookie(name, value, days) {
-        let expires = "";
-        if (days) {
-            let date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            expires = "; expires=" + date.toUTCString();
-        }
-        document.cookie = name + "=" + (value || "") + expires + "; path=/";
-    }
-
-    //get the user's settings from cookies
-    function getCookie(name) {
-        let nameEQ = name + "=";
-        let ca = document.cookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-        }
-        return null;
-    }
-
-    //load the user's settings from cookies
-    function loadSettings() {
-        const contrast = getCookie('contrast');
-        const grayscale = getCookie('grayscale');
-        const invert = getCookie('invert');
-        const brightness = getCookie('brightness');
-        const blur = getCookie('blur');
-        const underline = getCookie('underline');
-        const fontSize = getCookie('fontSize');
-
-        if (contrast) {
-            document.body.classList.add('contrast');
-        }
-        if (grayscale) {
-            document.body.classList.add('grayscale');
-        }
-        if (invert) {
-            document.body.classList.add('invert');
-        }
-        if (brightness) {
-            document.body.classList.add('brightness');
-        }
-        if (blur) {
-            document.body.classList.add('blur');
-        }
-        if (underline) {
-            document.body.classList.add('underline');
-        }
-        if (fontSize) {
-            document.body.style.fontSize = fontSize;
-        }
-    }
-
-    loadSettings();
-
-    //save the user's settings when the page is closed
-    window.addEventListener('beforeunload', function () {
-        const contrast = document.body.classList.contains('contrast') ? 'contrast' : '';
-        const grayscale = document.body.classList.contains('grayscale') ? 'grayscale' : '';
-        const invert = document.body.classList.contains('invert') ? 'invert' : '';
-        const brightness = document.body.classList.contains('brightness') ? 'brightness' : '';
-        const blur = document.body.classList.contains('blur') ? 'blur' : '';
-        const underline = document.body.classList.contains('underline') ? 'underline' : '';
-        const fontSize = document.body.style.fontSize;
-
-        setCookie('contrast', contrast, 365);
-        setCookie('grayscale', grayscale, 365);
-        setCookie('invert', invert, 365);
-        setCookie('brightness', brightness, 365);
-        setCookie('blur', blur, 365);
-        setCookie('underline', underline, 365);
-        setCookie('fontSize', fontSize, 365);
+    //save the user's settings in local storage
+    const accItemsArray = Array.from(accItems);
+    accItemsArray.forEach(item => {
+        item.addEventListener('click', () => {
+            localStorage.setItem('accessibility-settings', JSON.stringify({
+                invertColors: docElement.classList.contains('invert'),
+                grayscale: docElement.classList.contains('grayscale'),
+                highSaturation: docElement.classList.contains('high-saturation'),
+                lowSaturation: docElement.classList.contains('low-saturation'),
+                underlineStyle0: docElement.classList.contains('underline-style-0'),
+                underlineStyle1: docElement.classList.contains('underline-style-1'),
+                underlineStyle2: docElement.classList.contains('underline-style-2'),
+                fontSize: docElement.style.fontSize,
+                lineHeight0: docElement.classList.contains('line-height-0'),
+                lineHeight1: docElement.classList.contains('line-height-1'),
+                lineHeight2: docElement.classList.contains('line-height-2'),
+                letterSpacing: docElement.style.letterSpacing,
+                textAlign: docElement.style.textAlign,
+                contrast: docElement.classList.contains('contrast'),
+                contrastStyle0: docElement.classList.contains('contrast-style-0'),
+                contrastStyle1: docElement.classList.contains('contrast-style-1'),
+                contrastStyle2: docElement.classList.contains('contrast-style-2'),
+                hideImages: docElement.classList.contains('hide-images'),
+                hideVideo: docElement.classList.contains('hide-video'),
+                cursor0: cursor.classList.contains('cursor-0'),
+                cursor1: cursor.classList.contains('cursor-1'),
+                cursor2: cursor.classList.contains('cursor-2'),
+            }));
+        });
     });
+
+    //load the user's settings from local storage
+    const savedSettings = JSON.parse(localStorage.getItem('accessibility-settings'));
+    if (savedSettings) {
+        if (savedSettings.invertColors) {
+            docElement.classList.add('invert');
+        }
+        if (savedSettings.grayscale) {
+            docElement.classList.add('grayscale');
+        }
+        if (savedSettings.highSaturation) {
+            docElement.classList.add('high-saturation');
+        }
+        if (savedSettings.lowSaturation) {
+            docElement.classList.add('low-saturation');
+        }
+        if (savedSettings.underlineStyle0) {
+            docElement.classList.add('underline-style-0');
+        }
+        if (savedSettings.underlineStyle1) {
+            docElement.classList.add('underline-style-1');
+        }
+        if (savedSettings.underlineStyle2) {
+            docElement.classList.add('underline-style-2');
+        }
+        if (savedSettings.fontSize) {
+            docElement.style.fontSize = savedSettings.fontSize;
+        }
+        if (savedSettings.lineHeight0) {
+            docElement.classList.add('line-height-0');
+        }
+        if (savedSettings.lineHeight1) {
+            docElement.classList.add('line-height-1');
+        }
+        if (savedSettings.lineHeight2) {
+            docElement.classList.add('line-height-2');
+        }
+        if (savedSettings.letterSpacing) {
+            docElement.style.letterSpacing = savedSettings.letterSpacing;
+        }
+        if (savedSettings.textAlign) {
+            docElement.style.textAlign = savedSettings.textAlign;
+        }
+        if (savedSettings.contrast) {
+            docElement.classList.add('contrast');
+        }
+        if (savedSettings.contrastStyle0) {
+            docElement.classList.add('contrast-style-0');
+        }
+        if (savedSettings.contrastStyle1) {
+            docElement.classList.add('contrast-style-1');
+        }
+        if (savedSettings.contrastStyle2) {
+            docElement.classList.add('contrast-style-2');
+        }
+        if (savedSettings.hideImages) {
+            docElement.classList.add('hide-images');
+        }
+        if (savedSettings.hideVideo) {
+            docElement.classList.add('hide-video');
+        }
+        if (savedSettings.cursor0) {
+            cursor.classList.add('cursor-0');
+        }
+        if (savedSettings.cursor1) {
+            cursor.classList.add('cursor-1');
+        }
+        if (savedSettings.cursor2) {
+            cursor.classList.add('cursor-2');
+        }
+    }
+
+    //set active status of the accessibility tools
+    if (docElement.classList.contains('invert')) {
+        document.querySelector('#invert-colors').classList.add('active');
+    }
+    if (docElement.classList.contains('grayscale')) {
+        document.querySelector('#grayscale').classList.add('active');
+    }
+    if (docElement.classList.contains('high-saturation') || docElement.classList.contains('low-saturation')) {
+        document.querySelector('#saturation').classList.add('active');
+    }
+    if (docElement.classList.contains('underline-style-0') || docElement.classList.contains('underline-style-1') || docElement.classList.contains('underline-style-2')) {
+        document.querySelector('#underline').classList.add('active');
+    }
+    if (docElement.style.fontSize) {
+        document.querySelector('#font-size').classList.add('active');
+    }
+    if (docElement.classList.contains('line-height-0') || docElement.classList.contains('line-height-1') || docElement.classList.contains('line-height-2')) {
+        document.querySelector('#line-height').classList.add('active');
+    }
+    if (docElement.style.letterSpacing) {
+        document.querySelector('#letter-spacing').classList.add('active');
+    }
+    if (docElement.style.textAlign) {
+        document.querySelector('#text-align').classList.add('active');
+    }
+    if (docElement.classList.contains('contrast-style-0') || docElement.classList.contains('contrast-style-1') || docElement.classList.contains('contrast-style-2')) {
+        document.querySelector('#contrast').classList.add('active');
+    }
+    if (docElement.classList.contains('hide-images')) {
+        document.querySelector('#hide-images').classList.add('active');
+    }
+    if (docElement.classList.contains('hide-video')) {
+        document.querySelector('#hide-video').classList.add('active');
+    }
+    if (cursor.classList.contains('cursor-0') || cursor.classList.contains('cursor-1') || cursor.classList.contains('cursor-2')) {
+        document.querySelector('#change-cursor').classList.add('active');
+    }
+
+    accItems.forEach(item => {
+        item.querySelectorAll('path').forEach(icon => {
+            icon.style.fill = item.querySelector('.acc-child').classList.contains('active') ? 'var(--acc_color_2)' : 'var(--acc_color_1)';
+        });
+    });
+
 
 });
