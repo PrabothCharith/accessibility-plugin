@@ -260,6 +260,52 @@ const accessibilityMenuStyles = `    :root {
         margin-bottom: 10px;
     }
 
+    .change-positions{
+       display: flex;
+       align-items: bottom;
+       width: fit-content;
+       background: var(--acc_color_1);
+       border-top-right-radius: var(--border_radius);
+    }
+    
+    .change-positions button{
+        width: auto;
+        height: 50px;
+        border: none;
+        background: var(--acc_color_1);
+        color: var(--acc_color_2);
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 1/1;
+        padding: 20px;
+        margin: 10px;
+        border-radius: var(--border_radius);
+    }
+
+    .change-positions button svg{
+        scale: 1.3;
+        fill: var(--acc_color_2);
+    }
+
+    .change-positions button:hover{
+        background: var(--acc_color_2);
+    }
+
+    .change-positions button:hover svg{
+        scale: 1.8;
+        fill: var(--acc_color_1);
+    }
+
+    .change-positions button.active{
+        background: var(--acc_color_2);
+    }
+
+    .change-positions button.active svg{
+        fill: var(--acc_color_1);
+    }
+
     /*Accessibility Tools*/
     .invert {
         filter: invert(1);
@@ -942,6 +988,26 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
     Reset All
 </button>
 
+<!--change positions-->
+<div class="change-positions">
+    <button id="align-acc-left"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-start" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5"/>
+  <path d="M3 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/>
+</svg></button>
+    <button id="align-acc-top"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-top" viewBox="0 0 16 16">
+  <rect width="4" height="12" rx="1" transform="matrix(1 0 0 -1 6 15)"/>
+  <path d="M1.5 2a.5.5 0 0 1 0-1zm13-1a.5.5 0 0 1 0 1zm-13 0h13v1h-13z"/>
+</svg></button>
+    <button id="align-acc-bottom"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-bottom" viewBox="0 0 16 16">
+  <rect width="4" height="12" x="6" y="1" rx="1"/>
+  <path d="M1.5 14a.5.5 0 0 0 0 1zm13 1a.5.5 0 0 0 0-1zm-13 0h13v-1h-13z"/>
+</svg></button>
+    <button id="align-acc-right"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-end" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M14.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5"/>
+  <path d="M13 7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1z"/>
+</svg></button>
+</div>
+
 </div>`;
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -988,6 +1054,73 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const docElement = document.querySelector('html');
+
+    const alignAccLeft = document.getElementById('align-acc-left');
+    const alignAccTop = document.getElementById('align-acc-top');
+    const alignAccBottom = document.getElementById('align-acc-bottom');
+    const alignAccRight = document.getElementById('align-acc-right');
+
+    positionActiveStatus();
+
+    alignAccLeft.addEventListener('click', () => {
+        accessibilityModalOpenCloseToggle()
+        accessibilityModal.classList.remove('top');
+        accessibilityModal.classList.remove('bottom');
+        accessibilityModal.classList.remove('right');
+        accessibilityModal.classList.add('left');
+        positionActiveStatus();
+    });
+
+    alignAccTop.addEventListener('click', () => {
+        accessibilityModalOpenCloseToggle()
+        accessibilityModal.classList.remove('left');
+        accessibilityModal.classList.remove('bottom');
+        accessibilityModal.classList.remove('right');
+        accessibilityModal.classList.add('top');
+        positionActiveStatus();
+    });
+
+    alignAccBottom.addEventListener('click', () => {
+        accessibilityModalOpenCloseToggle()
+        accessibilityModal.classList.remove('left');
+        accessibilityModal.classList.remove('top');
+        accessibilityModal.classList.remove('right');
+        accessibilityModal.classList.add('bottom');
+        positionActiveStatus();
+    });
+
+    alignAccRight.addEventListener('click', () => {
+        accessibilityModalOpenCloseToggle()
+        accessibilityModal.classList.remove('left');
+        accessibilityModal.classList.remove('top');
+        accessibilityModal.classList.remove('bottom');
+        accessibilityModal.classList.add('right');
+        positionActiveStatus();
+    });
+
+    function positionActiveStatus() {
+        if (accessibilityModal.classList.contains('left')) {
+            alignAccLeft.classList.add('active');
+            alignAccTop.classList.remove('active');
+            alignAccBottom.classList.remove('active');
+            alignAccRight.classList.remove('active');
+        } else if (accessibilityModal.classList.contains('top')) {
+            alignAccTop.classList.add('active');
+            alignAccLeft.classList.remove('active');
+            alignAccBottom.classList.remove('active');
+            alignAccRight.classList.remove('active');
+        } else if (accessibilityModal.classList.contains('bottom')) {
+            alignAccBottom.classList.add('active');
+            alignAccTop.classList.remove('active');
+            alignAccLeft.classList.remove('active');
+            alignAccRight.classList.remove('active');
+        } else if (accessibilityModal.classList.contains('right')) {
+            alignAccRight.classList.add('active');
+            alignAccTop.classList.remove('active');
+            alignAccBottom.classList.remove('active');
+            alignAccLeft.classList.remove('active');
+        }
+    }
 
     document.querySelector('#invert-colors').addEventListener('click', () => {
         const item = document.querySelector('#invert-colors');
