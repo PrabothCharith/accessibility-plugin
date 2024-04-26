@@ -1559,6 +1559,55 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     })
 
+    //accessibility tools draggable
+
+    const dragElement = document.getElementById('accessibility-modal');
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    dragElement.onmousedown = dragMouseDown;
+
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        dragElement.style.top = (dragElement.offsetTop - pos2) + "px";
+        dragElement.style.left = (dragElement.offsetLeft - pos1) + "px";
+
+        if (dragElement.offsetTop < 0) {
+            dragElement.style.top = "0px";
+        } else if (dragElement.offsetTop > window.innerHeight - dragElement.offsetHeight) {
+            dragElement.style.top = window.innerHeight - dragElement.offsetHeight + "px";
+        }
+    }
+
+    function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+
+        if (dragElement.offsetTop < 0) {
+            dragElement.style.top = "0px";
+        } else if (dragElement.offsetTop > window.innerHeight - dragElement.offsetHeight) {
+            dragElement.style.top = window.innerHeight - dragElement.offsetHeight + "px";
+        }
+
+        if (dragElement.offsetLeft < 0) {
+            dragElement.style.left = "0px";
+        } else if (dragElement.offsetLeft > window.innerWidth - dragElement.offsetWidth) {
+            dragElement.style.left = window.innerWidth - dragElement.offsetWidth + "px";
+        }
+    }
+
     //save the user's settings in cookies
     function setCookie(name, value, days) {
         let expires = "";
