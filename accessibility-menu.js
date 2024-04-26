@@ -1559,35 +1559,36 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     //save the user's settings in local storage
-    const accItemsArray = Array.from(accItems);
-    accItemsArray.forEach(item => {
-        item.addEventListener('click', () => {
-            localStorage.setItem('accessibility-settings', JSON.stringify({
-                invertColors: docElement.classList.contains('invert'),
-                grayscale: docElement.classList.contains('grayscale'),
-                highSaturation: docElement.classList.contains('high-saturation'),
-                lowSaturation: docElement.classList.contains('low-saturation'),
-                underlineStyle0: docElement.classList.contains('underline-style-0'),
-                underlineStyle1: docElement.classList.contains('underline-style-1'),
-                underlineStyle2: docElement.classList.contains('underline-style-2'),
-                fontSize: docElement.style.fontSize,
-                lineHeight0: docElement.classList.contains('line-height-0'),
-                lineHeight1: docElement.classList.contains('line-height-1'),
-                lineHeight2: docElement.classList.contains('line-height-2'),
-                letterSpacing: docElement.style.letterSpacing,
-                textAlign: docElement.style.textAlign,
-                contrast: docElement.classList.contains('contrast'),
-                contrastStyle0: docElement.classList.contains('contrast-style-0'),
-                contrastStyle1: docElement.classList.contains('contrast-style-1'),
-                contrastStyle2: docElement.classList.contains('contrast-style-2'),
-                hideImages: docElement.classList.contains('hide-images'),
-                hideVideo: docElement.classList.contains('hide-video'),
-                cursor0: cursor.classList.contains('cursor-0'),
-                cursor1: cursor.classList.contains('cursor-1'),
-                cursor2: cursor.classList.contains('cursor-2'),
-            }));
-        });
-    });
+    function saveSettings() {
+        localStorage.setItem('accessibility-settings', JSON.stringify({
+            invertColors: docElement.classList.contains('invert'),
+            grayscale: docElement.classList.contains('grayscale'),
+            highSaturation: docElement.classList.contains('high-saturation'),
+            lowSaturation: docElement.classList.contains('low-saturation'),
+            underlineStyle0: docElement.classList.contains('underline-style-0'),
+            underlineStyle1: docElement.classList.contains('underline-style-1'),
+            underlineStyle2: docElement.classList.contains('underline-style-2'),
+            fontSize: docElement.style.fontSize,
+            lineHeight0: docElement.classList.contains('line-height-0'),
+            lineHeight1: docElement.classList.contains('line-height-1'),
+            lineHeight2: docElement.classList.contains('line-height-2'),
+            letterSpacing: docElement.style.letterSpacing,
+            textAlign: docElement.style.textAlign,
+            contrast: docElement.classList.contains('contrast'),
+            contrastStyle0: docElement.classList.contains('contrast-style-0'),
+            contrastStyle1: docElement.classList.contains('contrast-style-1'),
+            contrastStyle2: docElement.classList.contains('contrast-style-2'),
+            hideImages: docElement.classList.contains('hide-images'),
+            hideVideo: docElement.classList.contains('hide-video'),
+            cursor0: cursor.classList.contains('cursor-0'),
+            cursor1: cursor.classList.contains('cursor-1'),
+            cursor2: cursor.classList.contains('cursor-2'),
+            accPosition: accessibilityModal.classList.contains('left') ? 'left' : accessibilityModal.classList.contains('top') ? 'top' : accessibilityModal.classList.contains('bottom') ? 'bottom' : accessibilityModal.classList.contains('right') ? 'right' : ''
+        }));
+    }
+
+    //save the user's settings in local storage when the page is refreshed or closed
+    window.addEventListener('beforeunload', saveSettings);
 
     //load the user's settings from local storage
     const savedSettings = JSON.parse(localStorage.getItem('accessibility-settings'));
@@ -1658,6 +1659,30 @@ document.addEventListener("DOMContentLoaded", function () {
         if (savedSettings.cursor2) {
             cursor.classList.add('cursor-2');
         }
+
+        //remove all classes of the accessibility modal
+        if (accessibilityModal.classList.contains('left')) {
+            accessibilityModal.classList.remove('left');
+        } else if (accessibilityModal.classList.contains('top')) {
+            accessibilityModal.classList.remove('top');
+        } else if (accessibilityModal.classList.contains('bottom')) {
+            accessibilityModal.classList.remove('bottom');
+        } else if (accessibilityModal.classList.contains('right')) {
+            accessibilityModal.classList.remove('right');
+        }
+
+        //set the position of the accessibility modal
+        if (savedSettings.accPosition === 'left') {
+            accessibilityModal.classList.add('left');
+        } else if (savedSettings.accPosition === 'top') {
+            accessibilityModal.classList.add('top');
+        } else if (savedSettings.accPosition === 'bottom') {
+            accessibilityModal.classList.add('bottom');
+        } else if (savedSettings.accPosition === 'right') {
+            accessibilityModal.classList.add('right');
+        }
+
+        positionActiveStatus();
     }
 
     //set active status of the accessibility tools
