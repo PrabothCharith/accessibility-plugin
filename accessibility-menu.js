@@ -687,8 +687,49 @@ const accessibilityMenuStyles = `    :root {
         filter: opacity(0.8);
     }
     
-    .cursor{}
+    #cursor {
+      position: fixed;
+      z-index: 999999999;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+    }
+
+    #cursor.cursor-0 {
+      width: 50px;
+      height: auto;
+      aspect-ratio: 1/1;
+      background: red;
+      border: 2px solid var(--acc_color_2);
+      box-shadow: 0 0 20px 0 var(--acc_color_2);
+      border-radius: 50%;
+      mix-blend-mode: difference;
+      transition: all 0.1s ease;
+      transform-origin: center;
+      transform: translate(-50%, -50%);
+    }
     
+    #cursor.cursor-1 {
+      width: 100%;
+      height: 15vh;
+      background: transparent;
+      border: 10px solid var(--acc_color_2);
+      border-left: 0;
+      border-right: 0;
+      box-shadow: 0 0 0 100vh rgb(0 0 0 / 50%);
+      transition: none;
+      transform: translate(0, -50%);
+    }
+    
+    #cursor.cursor-2 {
+      width: 25vw;
+      height: 8px;
+      background: var(--acc_color_1);
+      border: yellow 2px solid;
+      transition: all 0.1s ease;
+      transform-origin: center;
+      transform: translate(-50%, 50%);
+    }
 `;
 const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close" style="z-index: 99999999;">
     <button id="closeBtn" style="z-index: 99999999;">
@@ -892,11 +933,7 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
             </div>
         </div>
     </div>
-    <div class="cursor">
-        <div class="cursor-item" id="cursor-1"></div>
-        <div class="cursor-item" id="cursor-2"></div>
-        <div class="cursor-item" id="cursor-3"></div>
-    </div>
+<div id="cursor"></div>
 <!--reset all-->
 <button id="reset-all">
     Reset All
@@ -1229,6 +1266,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.querySelector('#reset-all').addEventListener('click', () => {
+        const cursor = document.querySelector('#cursor');
+
+        //reset all the accessibility settings
         docElement.classList.remove('invert');
         docElement.classList.remove('grayscale');
         docElement.classList.remove('high-saturation');
@@ -1249,9 +1289,14 @@ document.addEventListener("DOMContentLoaded", function () {
         docElement.classList.remove('contrast-style-2');
         docElement.classList.remove('hide-images');
         docElement.classList.remove('hide-video');
-        docElement.classList.remove('cursor-0');
-        docElement.classList.remove('cursor-1');
-        docElement.classList.remove('cursor-2');
+        cursor.classList.remove('cursor-0');
+        cursor.classList.remove('cursor-1');
+        cursor.classList.remove('cursor-2');
+        docElement.style.cursor = '';
+        const triangle = document.getElementById('triangle-cursor');
+        if (triangle) {
+            triangle.remove();
+        }
 
         //reset the progress bar
         document.querySelectorAll('.acc-progress-parent').forEach(child => {
@@ -1270,44 +1315,109 @@ document.addEventListener("DOMContentLoaded", function () {
     let cursorClickCount = 0;
     document.querySelector('#change-cursor').addEventListener('click', () => {
         const item = document.querySelector('#change-cursor');
+        const cursor = document.querySelector('#cursor');
+
         if (cursorClickCount === 3) {
             cursorClickCount = 0;
             item.querySelector('.acc-progress-parent').classList.add('hidden');
             item.classList.add('active');
-            docElement.classList.remove('cursor-0');
-            docElement.classList.remove('cursor-1');
-            docElement.classList.remove('cursor-2');
+            cursor.classList.remove('cursor-0');
+            cursor.classList.remove('cursor-1');
+            cursor.classList.remove('cursor-2');
+            docElement.style.cursor = '';
+            const triangle = document.getElementById('triangle-cursor');
+            if (triangle) {
+                triangle.remove();
+            }
         } else {
             item.classList.remove('active');
             if (cursorClickCount === 0) {
-                docElement.classList.add('cursor-0');
-                docElement.classList.remove('cursor-1');
-                docElement.classList.remove('cursor-2');
+                cursor.classList.add('cursor-0');
+                cursor.classList.remove('cursor-1');
+                cursor.classList.remove('cursor-2');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.add('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
+                const triangle = document.getElementById('triangle-cursor');
             } else if (cursorClickCount === 1) {
-                docElement.classList.remove('cursor-0');
-                docElement.classList.add('cursor-1');
-                docElement.classList.remove('cursor-2');
+                cursor.classList.remove('cursor-0');
+                cursor.classList.add('cursor-1');
+                cursor.classList.remove('cursor-2');
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.add('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
+                const triangle = document.getElementById('triangle-cursor');
             } else if (cursorClickCount === 2) {
-                docElement.classList.remove('cursor-0');
-                docElement.classList.remove('cursor-1');
-                docElement.classList.add('cursor-2');
+                cursor.classList.remove('cursor-0');
+                cursor.classList.remove('cursor-1');
+                cursor.classList.add('cursor-2');
+                docElement.style.cursor = 'none';
                 item.querySelector('.acc-progress-parent').classList.remove('hidden');
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
                 item.querySelector('.acc-progress-child-3').classList.add('active');
+
+                //create new div triangle cursor also work with cursor-2
+                const triangle = document.createElement('div');
+                triangle.id = 'triangle-cursor';
+                triangle.style.width = '0';
+                triangle.style.height = '0';
+                triangle.style.borderLeft = '10px solid transparent';
+                triangle.style.borderRight = '10px solid transparent';
+                triangle.style.borderBottom = '10px solid yellow';
+                triangle.style.position = 'fixed';
+                triangle.style.top = '0';
+                triangle.style.left = '0';
+                triangle.style.transform = 'translate(-50%, -50%)';
+                triangle.style.transition = 'all 0.1s ease';
+                triangle.style.zIndex = '999999999';
+                triangle.style.pointerEvents = 'none';
+                document.body.appendChild(triangle);
+
             }
             cursorClickCount++;
         }
 
     });
+
+    //cursor
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+        if (cursor.classList.contains('cursor-0')) {
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.left = e.clientX + 'px';
+        } else if (cursor.classList.contains('cursor-1')) {
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.left = 0;
+        } else if (cursor.classList.contains('cursor-2')) {
+            cursor.style.top = e.clientY + 'px';
+            if (e.clientX < window.innerWidth / 8) {
+                cursor.style.left = window.innerWidth / 8 + 'px';
+            } else if (e.clientX > window.innerWidth - window.innerWidth / 8) {
+                cursor.style.left = window.innerWidth - window.innerWidth / 8 + 'px';
+            } else {
+                cursor.style.left = e.clientX + 'px';
+            }
+            const triangle = document.getElementById('triangle-cursor');
+            triangle.style.top = e.clientY + 'px';
+            triangle.style.left = e.clientX + 'px';
+        }
+    });
+
+    document.querySelectorAll('a,button').forEach(a => {
+        a.addEventListener('mouseover', () => {
+            if (cursor.classList.contains('cursor-0')) {
+                cursor.style.width = '100px';
+            }
+        });
+        a.addEventListener('mouseleave', () => {
+            if (cursor.classList.contains('cursor-0')) {
+                cursor.style.width = '50px';
+            }
+        });
+    })
 
     //save the user's settings in cookies
     function setCookie(name, value, days) {
