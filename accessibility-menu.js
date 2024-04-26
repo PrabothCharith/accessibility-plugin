@@ -30,6 +30,7 @@ const accessibilityMenuStyles = `    :root {
         border-radius: 0 var(--border_radius) var(--border_radius) 0;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         overflow: clip;
+        overflow-y: auto;
     }
 
     #accessibility-modal #closeBtn {
