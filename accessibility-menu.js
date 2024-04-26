@@ -748,7 +748,7 @@ const accessibilityMenuStyles = `    :root {
       width: 50px;
       height: auto;
       aspect-ratio: 1/1;
-      background: red;
+      background: rgba(255, 0, 0, 0.5);
       border: 2px solid var(--acc_color_2);
       box-shadow: 0 0 20px 0 var(--acc_color_2);
       border-radius: 50%;
