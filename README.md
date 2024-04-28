@@ -1,6 +1,6 @@
 # Accessibility Plugin
 
-[![npm version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=js&r=r&ts=1683906897&type=6e&v=1.1.0&x2=0)](https://badge.fury.io/js/accessibility-plugin)
+[![npm version](https://badge.fury.io/js/accessibility-plugin.svg)](https://badge.fury.io/js/accessibility-plugin)
 
 ## Description
 
