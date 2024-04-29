@@ -31,8 +31,8 @@ const accessibilityMenuStyles = `    :root {
         border-radius: 0 var(--border_radius) var(--border_radius) 0;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         overflow: clip;
-        padding-bottom: 80px;
-        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
     }
 
     #accessibility-modal #closeBtn {
@@ -187,6 +187,17 @@ const accessibilityMenuStyles = `    :root {
         width: 100%;
         height: auto;
         transition: all 0.3s ease 2s;
+        overflow-y: auto;
+        margin-bottom: 140px;
+    }
+    
+    #accessibility-tools::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    #accessibility-tools::-webkit-scrollbar-thumb {
+        background: var(--acc_color_1);
+        border-radius: 10px;
     }
 
     .acc-item {
@@ -272,9 +283,6 @@ const accessibilityMenuStyles = `    :root {
        width: fit-content;
        background: var(--acc_color_1);
        border-top-right-radius: var(--border_radius);
-       position: absolute;
-       bottom: 0;
-       left: 0;
     }
     
     #change-positions button{
@@ -313,6 +321,16 @@ const accessibilityMenuStyles = `    :root {
 
     #change-positions button.active svg{
         fill: var(--acc_color_1);
+    }
+
+    #acc-footer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: var(--acc_color_2);
     }
 
     #reset-all{
@@ -805,7 +823,8 @@ const accessibilityMenuStyles = `    :root {
         display: none;
     }
 `;
-const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close" style="z-index: 99999999;">
+const accessibilityMenuHTML = `
+<div id="accessibility-modal" class="right close" style="z-index: 99999999;">
     <button id="closeBtn" style="z-index: 99999999;">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
              class="bi bi-universal-access-circle" viewBox="0 0 16 16">
@@ -1008,34 +1027,36 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
         </div>
     </div>
 
-<!--cursor and triangle cursor-->
-<div id="cursor"></div>
-<div id="triangle-cursor"></div>
-
-<!--reset all-->
-<button id="reset-all">
-    Reset All
-</button>
-
-<!--change positions-->
-<div id="change-positions">
-    <button id="align-acc-left"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-start" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M1.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5"/>
-  <path d="M3 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/>
-</svg></button>
-    <button id="align-acc-top"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-top" viewBox="0 0 16 16">
-  <rect width="4" height="12" rx="1" transform="matrix(1 0 0 -1 6 15)"/>
-  <path d="M1.5 2a.5.5 0 0 1 0-1zm13-1a.5.5 0 0 1 0 1zm-13 0h13v1h-13z"/>
-</svg></button>
-    <button id="align-acc-bottom"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-bottom" viewBox="0 0 16 16">
-  <rect width="4" height="12" x="6" y="1" rx="1"/>
-  <path d="M1.5 14a.5.5 0 0 0 0 1zm13 1a.5.5 0 0 0 0-1zm-13 0h13v-1h-13z"/>
-</svg></button>
-    <button id="align-acc-right"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-end" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M14.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5"/>
-  <path d="M13 7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1z"/>
-</svg></button>
-</div>
+    <!--cursor and triangle cursor-->
+    <div id="cursor"></div>
+    <div id="triangle-cursor"></div>
+    
+    <!--accessibility modal footer-->
+    <div id="acc-footer">
+        <!--reset all-->
+        <button id="reset-all">
+            Reset All
+        </button>
+        <!--change positions-->
+        <div id="change-positions">
+            <button id="align-acc-left"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-start" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5"/>
+          <path d="M3 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/>
+        </svg></button>
+            <button id="align-acc-top"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-top" viewBox="0 0 16 16">
+          <rect width="4" height="12" rx="1" transform="matrix(1 0 0 -1 6 15)"/>
+          <path d="M1.5 2a.5.5 0 0 1 0-1zm13-1a.5.5 0 0 1 0 1zm-13 0h13v1h-13z"/>
+        </svg></button>
+            <button id="align-acc-bottom"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-bottom" viewBox="0 0 16 16">
+          <rect width="4" height="12" x="6" y="1" rx="1"/>
+          <path d="M1.5 14a.5.5 0 0 0 0 1zm13 1a.5.5 0 0 0 0-1zm-13 0h13v-1h-13z"/>
+        </svg></button>
+            <button id="align-acc-right"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-end" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M14.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5"/>
+          <path d="M13 7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1z"/>
+        </svg></button>
+        </div>    
+    </div>
 
 </div>`;
 document.addEventListener("DOMContentLoaded", function () {
