@@ -17,6 +17,7 @@ const accessibilityMenuStyles = `
       line-height: 1;
       letter-spacing: 0;
       text-align: center;
+      user-select: none;
     }
     
     #accessibility-modal {
