@@ -205,6 +205,7 @@ const accessibilityMenuStyles = `    :root {
     .acc-item:hover .acc-child.active {
         filter: opacity(0.8);
         border: 1px solid var(--acc_color_2);
+        color: var(--acc_color_2);
     }
 
     .acc-child {
@@ -222,6 +223,7 @@ const accessibilityMenuStyles = `    :root {
         padding: 10px 10px 0;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         border: 1px solid var(--acc_color_1);
+        color: var(--acc_color_1);
     }
 
     .acc-child.active {
