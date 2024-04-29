@@ -23,13 +23,15 @@ const accessibilityMenuStyles = `    :root {
         left: 0;
         width: 98%;
         max-width: 500px;
-        height: 90vh;
+        height: auto;
+        max-height: 90vh;
         background: var(--acc_color_2);
         z-index: 1000;
         justify-content: center;
         border-radius: 0 var(--border_radius) var(--border_radius) 0;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         overflow: clip;
+        padding-bottom: 80px;
         overflow-y: auto;
     }
 
@@ -111,6 +113,7 @@ const accessibilityMenuStyles = `    :root {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         overflow: clip;
         margin: 5px;
+        padding: 0;
     }
 
     #accessibility-modal.close .acc-item {
