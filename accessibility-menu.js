@@ -315,6 +315,23 @@ const accessibilityMenuStyles = `    :root {
         fill: var(--acc_color_1);
     }
 
+    #reset-all{
+        width: calc(100% - 20px);
+        height: 50px;
+        background: var(--acc_color_1);
+        color: var(--acc_color_2);
+        border-radius: var(--border_radius);
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+    }
+    
+    #reset-all:hover{
+        filter: opacity(0.8);
+    }
+
     /*Accessibility Tools*/
     .invert {
         filter: invert(1);
@@ -726,23 +743,6 @@ const accessibilityMenuStyles = `    :root {
     
     .line-height-2 *{
         line-height: 2;
-   }
-    
-    #reset-all{
-        width: calc(100% - 20px);
-        height: 50px;
-        background: var(--acc_color_1);
-        color: var(--acc_color_2);
-        border-radius: var(--border_radius);
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 10px;
-    }
-    
-    #reset-all:hover{
-        filter: opacity(0.8);
     }
     
     #cursor {
