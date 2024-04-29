@@ -196,6 +196,7 @@ const accessibilityMenuStyles = `
     
     #accessibility-tools::-webkit-scrollbar {
       width: 10px;
+      background: var(--acc_color_2);
     }
     
     #accessibility-tools::-webkit-scrollbar-thumb {
