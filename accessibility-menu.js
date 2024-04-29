@@ -264,15 +264,18 @@ const accessibilityMenuStyles = `    :root {
         margin-bottom: 10px;
     }
 
-    .change-positions{
+    #change-positions{
        display: flex;
        align-items: bottom;
        width: fit-content;
        background: var(--acc_color_1);
        border-top-right-radius: var(--border_radius);
+       position: absolute;
+       bottom: 0;
+       left: 0;
     }
     
-    .change-positions button{
+    #change-positions button{
         width: auto;
         height: 50px;
         border: none;
@@ -288,25 +291,25 @@ const accessibilityMenuStyles = `    :root {
         border-radius: var(--border_radius);
     }
 
-    .change-positions button svg{
+    #change-positions button svg{
         scale: 1.3;
         fill: var(--acc_color_2);
     }
 
-    .change-positions button:hover{
+    #change-positions button:hover{
         background: var(--acc_color_2);
     }
 
-    .change-positions button:hover svg{
+    #change-positions button:hover svg{
         scale: 1.8;
         fill: var(--acc_color_1);
     }
 
-    .change-positions button.active{
+    #change-positions button.active{
         background: var(--acc_color_2);
     }
 
-    .change-positions button.active svg{
+    #change-positions button.active svg{
         fill: var(--acc_color_1);
     }
 
@@ -993,7 +996,7 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
 </button>
 
 <!--change positions-->
-<div class="change-positions">
+<div id="change-positions">
     <button id="align-acc-left"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-align-start" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M1.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5"/>
   <path d="M3 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/>
