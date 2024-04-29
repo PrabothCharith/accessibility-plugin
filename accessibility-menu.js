@@ -1667,6 +1667,22 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         if (savedSettings.cursor2) {
             cursor.classList.add('cursor-2');
+            //create new div triangle cursor also work with cursor-2
+            const triangle = document.createElement('div');
+            triangle.id = 'triangle-cursor';
+            triangle.style.width = '0';
+            triangle.style.height = '0';
+            triangle.style.borderLeft = '10px solid transparent';
+            triangle.style.borderRight = '10px solid transparent';
+            triangle.style.borderBottom = '10px solid yellow';
+            triangle.style.position = 'fixed';
+            triangle.style.top = '0';
+            triangle.style.left = '0';
+            triangle.style.transform = 'translate(-50%, -50%)';
+            triangle.style.transition = 'all 0.1s ease';
+            triangle.style.zIndex = '999999999';
+            triangle.style.pointerEvents = 'none';
+            document.body.appendChild(triangle);
         }
 
         //remove all classes of the accessibility modal
