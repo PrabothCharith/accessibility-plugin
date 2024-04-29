@@ -1718,25 +1718,124 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector('#grayscale').classList.add('active');
     }
     if (docElement.classList.contains('high-saturation') || docElement.classList.contains('low-saturation')) {
-        document.querySelector('#saturation').classList.add('active');
+        const item = document.querySelector('#saturation');
+        item.classList.add('active');
+        item.querySelector('.acc-progress-parent').classList.remove('hidden');
+        if (docElement.classList.contains('high-saturation')) {
+            item.querySelector('.acc-progress-child-1').classList.remove('active');
+            item.querySelector('.acc-progress-child-2').classList.add('active');
+        } else if (docElement.classList.contains('low-saturation')) {
+            item.querySelector('.acc-progress-child-1').classList.add('active');
+            item.querySelector('.acc-progress-child-2').classList.remove('active');
+        }
     }
     if (docElement.classList.contains('underline-style-0') || docElement.classList.contains('underline-style-1') || docElement.classList.contains('underline-style-2')) {
-        document.querySelector('#underline').classList.add('active');
+        const item = document.querySelector('#underline');
+        item.classList.add('active');
+        item.querySelector('.acc-progress-parent').classList.remove('hidden');
+        if (docElement.classList.contains('underline-style-0')) {
+            item.querySelector('.acc-progress-child-1').classList.add('active');
+            item.querySelector('.acc-progress-child-2').classList.remove('active');
+            item.querySelector('.acc-progress-child-3').classList.remove('active');
+        } else if (docElement.classList.contains('underline-style-1')) {
+            item.querySelector('.acc-progress-child-1').classList.remove('active');
+            item.querySelector('.acc-progress-child-2').classList.add('active');
+            item.querySelector('.acc-progress-child-3').classList.remove('active');
+        } else if (docElement.classList.contains('underline-style-2')) {
+            item.querySelector('.acc-progress-child-1').classList.remove('active');
+            item.querySelector('.acc-progress-child-2').classList.remove('active');
+            item.querySelector('.acc-progress-child-3').classList.add('active');
+        }
     }
     if (docElement.style.fontSize) {
-        document.querySelector('#font-size').classList.add('active');
+        const item = document.querySelector('#font-size');
+        item.classList.add('active');
+        item.querySelector('.acc-progress-parent').classList.remove('hidden');
+        if (docElement.style.fontSize === '1.3rem') {
+            item.querySelector('.acc-progress-child-1').classList.add('active');
+            item.querySelector('.acc-progress-child-2').classList.remove('active');
+            item.querySelector('.acc-progress-child-3').classList.remove('active');
+        } else if (docElement.style.fontSize === '1.5rem') {
+            item.querySelector('.acc-progress-child-1').classList.remove('active');
+            item.querySelector('.acc-progress-child-2').classList.add('active');
+            item.querySelector('.acc-progress-child-3').classList.remove('active');
+        } else if (docElement.style.fontSize === '1.8rem') {
+            item.querySelector('.acc-progress-child-1').classList.remove('active');
+            item.querySelector('.acc-progress-child-2').classList.remove('active');
+            item.querySelector('.acc-progress-child-3').classList.add('active');
+        }
     }
     if (docElement.classList.contains('line-height-0') || docElement.classList.contains('line-height-1') || docElement.classList.contains('line-height-2')) {
-        document.querySelector('#line-height').classList.add('active');
+        const item = document.querySelector('#line-height');
+        item.classList.add('active');
+        item.querySelector('.acc-progress-parent').classList.remove('hidden');
+        if (docElement.classList.contains('line-height-0')) {
+            item.querySelector('.acc-progress-child-1').classList.add('active');
+            item.querySelector('.acc-progress-child-2').classList.remove('active');
+            item.querySelector('.acc-progress-child-3').classList.remove('active');
+        } else if (docElement.classList.contains('line-height-1')) {
+            item.querySelector('.acc-progress-child-1').classList.remove('active');
+            item.querySelector('.acc-progress-child-2').classList.add('active');
+            item.querySelector('.acc-progress-child-3').classList.remove('active');
+        } else if (docElement.classList.contains('line-height-2')) {
+            item.querySelector('.acc-progress-child-1').classList.remove('active');
+            item.querySelector('.acc-progress-child-2').classList.remove('active');
+            item.querySelector('.acc-progress-child-3').classList.add('active');
+        }
     }
     if (docElement.style.letterSpacing) {
-        document.querySelector('#letter-spacing').classList.add('active');
+        const item = document.querySelector('#letter-spacing');
+        item.classList.add('active');
+        item.querySelector('.acc-progress-parent').classList.remove('hidden');
+        if (docElement.style.letterSpacing === '0.1rem') {
+            item.querySelector('.acc-progress-child-1').classList.add('active');
+            item.querySelector('.acc-progress-child-2').classList.remove('active');
+            item.querySelector('.acc-progress-child-3').classList.remove('active');
+        } else if (docElement.style.letterSpacing === '0.2rem') {
+            item.querySelector('.acc-progress-child-1').classList.remove('active');
+            item.querySelector('.acc-progress-child-2').classList.add('active');
+            item.querySelector('.acc-progress-child-3').classList.remove('active');
+        } else if (docElement.style.letterSpacing === '0.3rem') {
+            item.querySelector('.acc-progress-child-1').classList.remove('active');
+            item.querySelector('.acc-progress-child-2').classList.remove('active');
+            item.querySelector('.acc-progress-child-3').classList.add('active');
+        }
     }
     if (docElement.style.textAlign) {
-        document.querySelector('#text-align').classList.add('active');
+        const item = document.querySelector('#text-align');
+        item.classList.add('active');
+        item.querySelector('.acc-progress-parent').classList.remove('hidden');
+        if (docElement.style.textAlign === 'left') {
+            item.querySelector('.acc-progress-child-1').classList.add('active');
+            item.querySelector('.acc-progress-child-2').classList.remove('active');
+            item.querySelector('.acc-progress-child-3').classList.remove('active');
+        } else if (docElement.style.textAlign === 'center') {
+            item.querySelector('.acc-progress-child-1').classList.remove('active');
+            item.querySelector('.acc-progress-child-2').classList.add('active');
+            item.querySelector('.acc-progress-child-3').classList.remove('active');
+        } else if (docElement.style.textAlign === 'right') {
+            item.querySelector('.acc-progress-child-1').classList.remove('active');
+            item.querySelector('.acc-progress-child-2').classList.remove('active');
+            item.querySelector('.acc-progress-child-3').classList.add('active');
+        }
     }
     if (docElement.classList.contains('contrast-style-0') || docElement.classList.contains('contrast-style-1') || docElement.classList.contains('contrast-style-2')) {
-        document.querySelector('#contrast').classList.add('active');
+        const item = document.querySelector('#contrast');
+        item.classList.add('active');
+        item.querySelector('.acc-progress-parent').classList.remove('hidden');
+        if (docElement.classList.contains('contrast-style-0')) {
+            item.querySelector('.acc-progress-child-1').classList.add('active');
+            item.querySelector('.acc-progress-child-2').classList.remove('active');
+            item.querySelector('.acc-progress-child-3').classList.remove('active');
+        } else if (docElement.classList.contains('contrast-style-1')) {
+            item.querySelector('.acc-progress-child-1').classList.remove('active');
+            item.querySelector('.acc-progress-child-2').classList.add('active');
+            item.querySelector('.acc-progress-child-3').classList.remove('active');
+        } else if (docElement.classList.contains('contrast-style-2')) {
+            item.querySelector('.acc-progress-child-1').classList.remove('active');
+            item.querySelector('.acc-progress-child-2').classList.remove('active');
+            item.querySelector('.acc-progress-child-3').classList.add('active');
+        }
     }
     if (docElement.classList.contains('hide-images')) {
         document.querySelector('#hide-images').classList.add('active');
@@ -1745,7 +1844,22 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector('#hide-video').classList.add('active');
     }
     if (cursor.classList.contains('cursor-0') || cursor.classList.contains('cursor-1') || cursor.classList.contains('cursor-2')) {
-        document.querySelector('#change-cursor').classList.add('active');
+        const item = document.querySelector('#change-cursor');
+        item.classList.add('active');
+        item.querySelector('.acc-progress-parent').classList.remove('hidden');
+        if (cursor.classList.contains('cursor-0')) {
+            item.querySelector('.acc-progress-child-1').classList.add('active');
+            item.querySelector('.acc-progress-child-2').classList.remove('active');
+            item.querySelector('.acc-progress-child-3').classList.remove('active');
+        } else if (cursor.classList.contains('cursor-1')) {
+            item.querySelector('.acc-progress-child-1').classList.remove('active');
+            item.querySelector('.acc-progress-child-2').classList.add('active');
+            item.querySelector('.acc-progress-child-3').classList.remove('active');
+        } else if (cursor.classList.contains('cursor-2')) {
+            item.querySelector('.acc-progress-child-1').classList.remove('active');
+            item.querySelector('.acc-progress-child-2').classList.remove('active');
+            item.querySelector('.acc-progress-child-3').classList.add('active');
+        }
     }
 
     accItems.forEach(item => {
