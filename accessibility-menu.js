@@ -788,6 +788,22 @@ const accessibilityMenuStyles = `    :root {
       transform-origin: center;
       transform: translate(-50%, 50%);
     }
+    
+    #triangle-cursor {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid yellow;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        transition: all 0.1s ease;
+        z-index: 999999998;
+        pointer-events: none;
+        display: none;
+    }
 `;
 const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close" style="z-index: 99999999;">
     <button id="closeBtn" style="z-index: 99999999;">
@@ -991,7 +1007,11 @@ const accessibilityMenuHTML = `<div id="accessibility-modal" class="right close"
             </div>
         </div>
     </div>
+
+<!--cursor and triangle cursor-->
 <div id="cursor"></div>
+<div id="triangle-cursor"></div>
+
 <!--reset all-->
 <button id="reset-all">
     Reset All
@@ -1464,6 +1484,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector('#change-cursor').addEventListener('click', () => {
         const item = document.querySelector('#change-cursor');
         const cursor = document.querySelector('#cursor');
+        const triangle = document.getElementById('triangle-cursor');
+        triangle.style.display = 'none';
 
         if (cursorClickCount === 3) {
             cursorClickCount = 0;
@@ -1473,10 +1495,6 @@ document.addEventListener("DOMContentLoaded", function () {
             cursor.classList.remove('cursor-1');
             cursor.classList.remove('cursor-2');
             docElement.style.cursor = '';
-            const triangle = document.getElementById('triangle-cursor');
-            if (triangle) {
-                triangle.remove();
-            }
         } else {
             item.classList.remove('active');
             if (cursorClickCount === 0) {
@@ -1487,7 +1505,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 item.querySelector('.acc-progress-child-1').classList.add('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
-                const triangle = document.getElementById('triangle-cursor');
             } else if (cursorClickCount === 1) {
                 cursor.classList.remove('cursor-0');
                 cursor.classList.add('cursor-1');
@@ -1496,7 +1513,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.add('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
-                const triangle = document.getElementById('triangle-cursor');
             } else if (cursorClickCount === 2) {
                 cursor.classList.remove('cursor-0');
                 cursor.classList.remove('cursor-1');
@@ -1506,24 +1522,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
                 item.querySelector('.acc-progress-child-3').classList.add('active');
-
-                //create new div triangle cursor also work with cursor-2
-                const triangle = document.createElement('div');
-                triangle.id = 'triangle-cursor';
-                triangle.style.width = '0';
-                triangle.style.height = '0';
-                triangle.style.borderLeft = '10px solid transparent';
-                triangle.style.borderRight = '10px solid transparent';
-                triangle.style.borderBottom = '10px solid yellow';
-                triangle.style.position = 'fixed';
-                triangle.style.top = '0';
-                triangle.style.left = '0';
-                triangle.style.transform = 'translate(-50%, -50%)';
-                triangle.style.transition = 'all 0.1s ease';
-                triangle.style.zIndex = '999999999';
-                triangle.style.pointerEvents = 'none';
-                document.body.appendChild(triangle);
-
+                triangle.style.display = 'block';
             }
             cursorClickCount++;
         }
@@ -1667,22 +1666,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         if (savedSettings.cursor2) {
             cursor.classList.add('cursor-2');
-            //create new div triangle cursor also work with cursor-2
-            const triangle = document.createElement('div');
-            triangle.id = 'triangle-cursor';
-            triangle.style.width = '0';
-            triangle.style.height = '0';
-            triangle.style.borderLeft = '10px solid transparent';
-            triangle.style.borderRight = '10px solid transparent';
-            triangle.style.borderBottom = '10px solid yellow';
-            triangle.style.position = 'fixed';
-            triangle.style.top = '0';
-            triangle.style.left = '0';
-            triangle.style.transform = 'translate(-50%, -50%)';
-            triangle.style.transition = 'all 0.1s ease';
-            triangle.style.zIndex = '999999999';
-            triangle.style.pointerEvents = 'none';
-            document.body.appendChild(triangle);
         }
 
         //remove all classes of the accessibility modal
@@ -1845,6 +1828,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     if (cursor.classList.contains('cursor-0') || cursor.classList.contains('cursor-1') || cursor.classList.contains('cursor-2')) {
         const item = document.querySelector('#change-cursor');
+        const triangle = document.getElementById('triangle-cursor');
+        triangle.style.display = 'none';
         item.classList.add('active');
         item.querySelector('.acc-progress-parent').classList.remove('hidden');
         if (cursor.classList.contains('cursor-0')) {
@@ -1859,6 +1844,7 @@ document.addEventListener("DOMContentLoaded", function () {
             item.querySelector('.acc-progress-child-1').classList.remove('active');
             item.querySelector('.acc-progress-child-2').classList.remove('active');
             item.querySelector('.acc-progress-child-3').classList.add('active');
+            triangle.style.display = 'block';
         }
     }
 
