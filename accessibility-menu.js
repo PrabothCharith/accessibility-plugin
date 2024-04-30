@@ -173,7 +173,6 @@ const accessibilityMenuStyles = `
     }
     
     #accessibility-modal #headerContent p {
-      margin-top: 15px;
       font-size: 20px;
       font-weight: 600;
     }
