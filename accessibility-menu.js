@@ -1472,6 +1472,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 item.querySelector('.acc-progress-child-1').classList.add('active');
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
+                cursor.style.width = '50px';
+                cursor.style.height = '50px';
             } else if (cursorClickCount === 1) {
                 cursor.classList.remove('cursor-0');
                 cursor.classList.add('cursor-1');
@@ -1480,6 +1482,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 item.querySelector('.acc-progress-child-1').classList.remove('active');
                 item.querySelector('.acc-progress-child-2').classList.add('active');
                 item.querySelector('.acc-progress-child-3').classList.remove('active');
+                cursor.style.width = '100%';
+                cursor.style.height = '15vh'
             } else if (cursorClickCount === 2) {
                 cursor.classList.remove('cursor-0');
                 cursor.classList.remove('cursor-1');
@@ -1490,6 +1494,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 item.querySelector('.acc-progress-child-2').classList.remove('active');
                 item.querySelector('.acc-progress-child-3').classList.add('active');
                 triangle.style.display = 'block';
+                cursor.style.width = '25vw';
+                cursor.style.height = '8px';
             }
             cursorClickCount++;
         }
