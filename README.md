@@ -1,6 +1,6 @@
 # Accessibility Plugin
 
-[![npm version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=js&r=r&ts=1683906897&type=6e&v=1.1.0&x2=0)](https://badge.fury.io/js/accessibility-plugin)
+[![npm version](https://badge.fury.io/js/accessibility-plugin.svg)](https://badge.fury.io/js/accessibility-plugin)
 
 ## Description
 
@@ -9,7 +9,7 @@ The Accessibility Plugin is a JavaScript library that helps improve the accessib
 ## Features
 
 - **Invert Colors**: Inverts the colors of the page to improve readability for users with visual impairments.
-- **Grayscale**: Converts the page to grayscale to improve readability for users with visual impairments.
+- **Grayscale**: Converts the page grayscale to improve readability for users with visual impairments.
 - **Low Saturation**: Reduces the saturation of the page to improve readability for users with visual impairments.
 - **High Saturation**: Increases the saturation of the page to improve readability for users with visual impairments.
 - **Link Highlight**: Highlights all links on the page to make them easier to identify for users with visual impairments.
@@ -27,7 +27,8 @@ The Accessibility Plugin is a JavaScript library that helps improve the accessib
 - **Reading Guide**: Makes it easier to read long lines of text by Long Highlight Cursor.
 - **Reset**: Resets all accessibility settings to their default values.
 - **Close**: Closes the accessibility menu.
-- **Change Position**: You can change the position of the accessibility menu to `left`, `right`, `top` or `bottom` as User need.
+- **Change Position**: You can change the position of the accessibility menu to `left`, `right`, `top` or `bottom` as User needs.
+- **Save Settings**: Save the current settings to the local storage and load them when the page is reloaded.
 
 ## Installation
 
@@ -63,27 +64,7 @@ You can use `min.js` file _as your requirement_
 - In this div, you can find class `right` by **default**. You can change it to `left`, `right`, `top` or `bottom` as you need
 
 
-## Example 
+## Preview
 
-### default view
+<video style='width:100%; height:auto;' src='https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/e310ea92-e434-4c35-a2d5-f1c99547e98e'></video>
 
-![image](https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/755a78db-6de1-43d7-a3f0-ec179cc39d69)
-<img width="530" alt="SCR-20240422-svdv" src="https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/d74454a0-54c4-4379-8c1d-0c514372db58">
-<img width="530" alt="SCR-20240422-suzy" src="https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/08e18cbe-f8d5-4d62-ad66-87d6ee437cf8">
-<img width="530" alt="SCR-20240422-suyc" src="https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/bf4387c4-92c3-49d9-8892-ff7fbf09d38c">
-
-## left
-![image](https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/7aa31c05-e856-4857-9cbc-774e6952b8fb)
-![image](https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/e6349b8f-bfc2-47c7-bd4d-0fca448cbb78)
-
-## right
-![image](https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/fc0a5a70-9456-4c52-8f5a-ffbae51e0379)
-![image](https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/bcf16866-1231-44be-98b4-e3e908e91c64)
-
-## top
-![image](https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/f3da4198-c796-49ae-9580-466b428d5feb)
-![image](https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/7fe55c42-1e3d-464a-9b04-8c77879930d2)
-
-## bottom
-![image](https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/b08a86d4-e4fd-4736-9f7a-099ada59010f)
-![image](https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/a965796c-8dbf-4f38-ae82-bc3f5b4793d7)
