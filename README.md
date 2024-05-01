@@ -63,3 +63,8 @@ You can use `min.js` file _as your requirement_
 - In the js file, you can find the `first div` with `id` as `accessibility-modal`
 - In this div, you can find class `right` by **default**. You can change it to `left`, `right`, `top` or `bottom` as you need
 
+
+## Preview
+
+<video style='width:100%; height:auto;' src='https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/e310ea92-e434-4c35-a2d5-f1c99547e98e'></video>
+
