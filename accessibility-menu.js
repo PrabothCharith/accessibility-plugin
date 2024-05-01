@@ -1448,52 +1448,6 @@ document.addEventListener("DOMContentLoaded", function() {
         docElement.classList.toggle('hide-video');
     });
 
-    document.querySelector('#reset-all').addEventListener('click', () => {
-        const cursor = document.querySelector('#cursor');
-
-        //reset all the accessibility settings
-        docElement.classList.remove('invert');
-        docElement.classList.remove('grayscale');
-        docElement.classList.remove('high-saturation');
-        docElement.classList.remove('low-saturation');
-        docElement.classList.remove('underline-style-0');
-        docElement.classList.remove('underline-style-1');
-        docElement.classList.remove('underline-style-2');
-        docElement.style.fontSize = '';
-        docElement.classList.remove('line-height-0');
-        docElement.classList.remove('line-height-1');
-        docElement.classList.remove('line-height-2');
-        docElement.style.letterSpacing = '';
-        docElement.style.textAlign = '';
-        docElement.classList.remove('contrast');
-        docElement.classList.remove('contrast-style-0');
-        docElement.classList.remove('contrast-style-1');
-        docElement.classList.remove('contrast-style-2');
-        docElement.classList.remove('hide-images');
-        docElement.classList.remove('hide-video');
-        cursor.classList.remove('cursor-0');
-        cursor.classList.remove('cursor-1');
-        cursor.classList.remove('cursor-2');
-        docElement.style.cursor = '';
-        const triangle = document.getElementById('triangle-cursor');
-        if (triangle) {
-            triangle.remove();
-        }
-
-        //reset the progress bar
-        document.querySelectorAll('.acc-progress-parent').forEach(child => {
-            child.classList.add('hidden');
-        });
-
-        //reset the active state of the accessibility tools
-        document.querySelectorAll('.acc-child').forEach(child => {
-            child.classList.remove('active');
-            child.querySelectorAll('path').forEach(icon => {
-                icon.style.fill = 'var(--acc_color_1)';
-            });
-        });
-    });
-
     let cursorClickCount = 0;
     document.querySelector('#change-cursor').addEventListener('click', () => {
         const item = document.querySelector('#change-cursor');
@@ -1578,7 +1532,53 @@ document.addEventListener("DOMContentLoaded", function() {
                 cursor.style.width = '50px';
             }
         });
-    })
+    });
+
+    document.querySelector('#reset-all').addEventListener('click', () => {
+        const cursor = document.querySelector('#cursor');
+
+        //reset all the accessibility settings
+        docElement.classList.remove('invert');
+        docElement.classList.remove('grayscale');
+        docElement.classList.remove('high-saturation');
+        docElement.classList.remove('low-saturation');
+        docElement.classList.remove('underline-style-0');
+        docElement.classList.remove('underline-style-1');
+        docElement.classList.remove('underline-style-2');
+        docElement.style.fontSize = '';
+        docElement.classList.remove('line-height-0');
+        docElement.classList.remove('line-height-1');
+        docElement.classList.remove('line-height-2');
+        docElement.style.letterSpacing = '';
+        docElement.style.textAlign = '';
+        docElement.classList.remove('contrast');
+        docElement.classList.remove('contrast-style-0');
+        docElement.classList.remove('contrast-style-1');
+        docElement.classList.remove('contrast-style-2');
+        docElement.classList.remove('hide-images');
+        docElement.classList.remove('hide-video');
+        cursor.classList.remove('cursor-0');
+        cursor.classList.remove('cursor-1');
+        cursor.classList.remove('cursor-2');
+        docElement.style.cursor = '';
+        const triangle = document.getElementById('triangle-cursor');
+        if (triangle) {
+            triangle.remove();
+        }
+
+        //reset the progress bar
+        document.querySelectorAll('.acc-progress-parent').forEach(child => {
+            child.classList.add('hidden');
+        });
+
+        //reset the active state of the accessibility tools
+        document.querySelectorAll('.acc-child').forEach(child => {
+            child.classList.remove('active');
+            child.querySelectorAll('path').forEach(icon => {
+                icon.style.fill = 'var(--acc_color_1)';
+            });
+        });
+    });
 
     //save the user's settings in local storage
     function saveSettings() {
