@@ -1,6 +1,6 @@
 {
   "name": "accessibility-plugin",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "You can use this plugin to make a accessibility friendly website fast and easily",
   "main": "accessibility-menu.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/PrabothCharith/accessibility-plugin.git"
   },
   "keywords": [
-    "accessibility-plugin"
+    "accessibility-plugin","Accessibility","javascript","plugin","accessibility plugins","javascript-library","no-dependencies","accessibilityservice","accessibility-service","accessibility-toolbar","accessibility-plugin","free-accessibility","accessibility-tools","free-plugin"
   ],
   "author": "Praboth Charith",
   "license": "ISC",
