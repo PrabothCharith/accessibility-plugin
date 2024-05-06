@@ -1570,6 +1570,8 @@ document.addEventListener("DOMContentLoaded", function() {
         cursor.classList.remove('cursor-1');
         cursor.classList.remove('cursor-2');
         docElement.style.cursor = '';
+
+        //reset the cursor
         const triangle = document.getElementById('triangle-cursor');
         if (triangle) {
             triangle.style.display = 'none';
