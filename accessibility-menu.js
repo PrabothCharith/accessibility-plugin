@@ -1452,7 +1452,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const item = document.querySelector('#change-cursor');
         const cursor = document.querySelector('#cursor');
         const triangle = document.getElementById('triangle-cursor');
-        triangle.style.display = 'none';
+        if (triangle) {
+            triangle.style.display = 'none';
+        }
 
         if (cursorClickCount === 3) {
             cursorClickCount = 0;
