@@ -1589,6 +1589,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 icon.style.fill = 'var(--acc_color_1)';
             });
         });
+
+        // reset all counts to 0
+        saturationClickCount = 0;
+        underlineClickCount = 0;
+        fontSizeClickCount = 0;
+        lineHeightClickCount = 0;
+        letterSpacingClickCount = 0;
+        textAlignClickCount = 0;
+        contrastClickCount = 0;
+        cursorClickCount = 0;
     });
 
     //save the user's settings in local storage
