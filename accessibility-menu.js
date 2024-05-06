@@ -1530,11 +1530,13 @@ document.addEventListener("DOMContentLoaded", function() {
         a.addEventListener('mouseover', () => {
             if (cursor.classList.contains('cursor-0')) {
                 cursor.style.width = '100px';
+                cursor.style.height = '100px';
             }
         });
         a.addEventListener('mouseleave', () => {
             if (cursor.classList.contains('cursor-0')) {
                 cursor.style.width = '50px';
+                cursor.style.height = '50px';
             }
         });
     });
