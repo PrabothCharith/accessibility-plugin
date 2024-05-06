@@ -1572,7 +1572,7 @@ document.addEventListener("DOMContentLoaded", function() {
         docElement.style.cursor = '';
         const triangle = document.getElementById('triangle-cursor');
         if (triangle) {
-            triangle.remove();
+            triangle.style.display = 'none';
         }
 
         //reset the progress bar
