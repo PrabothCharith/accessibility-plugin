@@ -1452,7 +1452,9 @@ document.addEventListener("DOMContentLoaded", function() {
         const item = document.querySelector('#change-cursor');
         const cursor = document.querySelector('#cursor');
         const triangle = document.getElementById('triangle-cursor');
-        triangle.style.display = 'none';
+        if (triangle) {
+            triangle.style.display = 'none';
+        }
 
         if (cursorClickCount === 3) {
             cursorClickCount = 0;
@@ -1530,11 +1532,13 @@ document.addEventListener("DOMContentLoaded", function() {
         a.addEventListener('mouseover', () => {
             if (cursor.classList.contains('cursor-0')) {
                 cursor.style.width = '100px';
+                cursor.style.height = '100px';
             }
         });
         a.addEventListener('mouseleave', () => {
             if (cursor.classList.contains('cursor-0')) {
                 cursor.style.width = '50px';
+                cursor.style.height = '50px';
             }
         });
     });
@@ -1566,9 +1570,11 @@ document.addEventListener("DOMContentLoaded", function() {
         cursor.classList.remove('cursor-1');
         cursor.classList.remove('cursor-2');
         docElement.style.cursor = '';
+
+        //reset the cursor
         const triangle = document.getElementById('triangle-cursor');
         if (triangle) {
-            triangle.remove();
+            triangle.style.display = 'none';
         }
 
         //reset the progress bar
@@ -1583,6 +1589,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 icon.style.fill = 'var(--acc_color_1)';
             });
         });
+
+        // reset all counts to 0
+        saturationClickCount = 0;
+        underlineClickCount = 0;
+        fontSizeClickCount = 0;
+        lineHeightClickCount = 0;
+        letterSpacingClickCount = 0;
+        textAlignClickCount = 0;
+        contrastClickCount = 0;
+        cursorClickCount = 0;
     });
 
     //save the user's settings in local storage
