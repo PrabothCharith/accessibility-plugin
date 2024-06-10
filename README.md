@@ -36,12 +36,12 @@ You can install the Accessibility Plugin using npm. Run the following command in
 
 <pre><code>npm i accessibility-plugin</code></pre>
 
-### OR
-
-You can use this `CDN` easily.
-
-<pre><code>https://cdn.jsdelivr.net/gh/PrabothCharith/accessibility-plugin@main/accessibility-menu.min.js</code></pre>
-<pre><code><script src="https://cdn.jsdelivr.net/gh/PrabothCharith/accessibility-plugin@main/accessibility-menu.min.js"></script></code></pre>
+>[!tip]
+> ### OR
+> You can use this `CDN` easily.
+> <pre><code>https://cdn.jsdelivr.net/gh/PrabothCharith/accessibility-plugin@main/accessibility-menu.min.js</code></pre>
+> <pre><code><script src="https://cdn.jsdelivr.net/gh/PrabothCharith/accessibility-plugin@main/accessibility-menu.min.js"></script></code></pre>
+> <pre><code><script src="https://raw.githubusercontent.com/PrabothCharith/accessibility-plugin/main/accessibility-menu.min.js"></script></code></pre>
 
 <br/>
 
@@ -53,7 +53,7 @@ After installation, you can link the `javascript` file _normally_ using
 You can use `min.js` file _as your requirement_
 <pre><code><script src="node_modules/accessibility-plugin/accessibility-menu.min.js"></script></code></pre>
 
->[!tip]
+>[!important]
 > **Link the `Javascript` file `after all javascript` for better output**
 
 ## Customization
@@ -67,4 +67,3 @@ You can use `min.js` file _as your requirement_
 ## Preview
 
 <video style='width:100%; height:auto;' src='https://github.com/PrabothCharith/accessibility-plugin/assets/91902549/e310ea92-e434-4c35-a2d5-f1c99547e98e'></video>
-
