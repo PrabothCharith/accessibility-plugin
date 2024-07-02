@@ -1,6 +1,8 @@
 # Accessibility Plugin
-
 [![npm version](https://badge.fury.io/js/accessibility-plugin.svg)](https://badge.fury.io/js/accessibility-plugin)
+
+## Preview
+[click here to see preview](https://prabothcharith.github.io/accessibility-plugin/)
 
 ## Description
 
